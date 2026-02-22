@@ -1,0 +1,1275 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Maximus Linden Lang Calendar (Canvas)
+X-WR-CALDESC:Calendar events for the user\, Maximus Linden Lang
+BEGIN:VEVENT
+DTSTAMP:20260122T234200Z
+UID:event-assignment-949051
+DTSTART:20260123T161500Z
+DTEND:20260123T161500Z
+CLASS:PUBLIC
+DESCRIPTION:Hi All\,\n\nThis Assignment is to publish a Webpage with GitHub
+  Pages. You’ll build a simple\, well-structured personal webpage and hos
+ t it for free using GitHub Pages. By the end\, your site will be publicly 
+ accessible at a URL like https://<your-username>.github.io/ (user site) 
+ or https://<your-username>.github.io/<repo-name>/ (project site).\n\nNote
+ : We do not require any specific content in your webpage. You are free 
+ to choose the topic\, purpose\, and style (resume/CV\, portfolio\, “Abou
+ t me\,” a hobby\, course notes\, or anything else appropriate (e.g.\, pi
+ cs\, videos\, audio files)). The focus of this assignment is learning the 
+ process of creating/publishing and hosting\, not what the site is about.\n
+ \nThanks & Regards\,\n\nZhengkun\n\n \n\nReferences to Follow (Must Read)
+ :\n\n[https://docs.github.com/en/pages/getting-started-with-github-pages/c
+ reating-a-github-pages-siteLinks to an external site.] (https://docs.githu
+ b.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-s
+ ite)\n\n[https://www.khanacademy.org/computing/computer-programming/html-c
+ ss/web-development-tools/a/hosting-your-website-on-githubLinks to an exter
+ nal site.] (https://www.khanacademy.org/computing/computer-programming/htm
+ l-css/web-development-tools/a/hosting-your-website-on-github)\n\nWebsite T
+ emplates:\n\n[https://github.com/website-templatesLinks to an external sit
+ e.] (https://github.com/website-templates)\n\nVideo:\n\n[https://www.youtu
+ be.com/watch?v=e5AwNU3Y2esLinks to an external site.] (https://www.youtube
+ .com/watch?v=e5AwNU3Y2es)\n\n(Please also do search(es) on YouTube for the
+  tutorials you'd like to watch)
+SEQUENCE:0
+SUMMARY:Creating a GitHub Pages site [CSC-3360-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3973
+ 1&month=01&year=2026#assignment_949051
+X-ALT-DESC;FMTTYPE=text/html:<p>Hi All\,</p>\n<p>This Assignment is to publ
+ ish a Webpage with GitHub Pages. You’ll build a simple\, well-structured
+  personal webpage and host it for free using GitHub Pages. By the end\, yo
+ ur site will be publicly accessible at a URL like<span>&nbsp\;</span><stro
+ ng>https://&lt\;your-username&gt\;.github.io/ (user site)</strong><span>&n
+ bsp\;</span>or<span>&nbsp\;</span><strong>https://&lt\;your-username&gt\;.
+ github.io/&lt\;repo-name&gt\;/ (project site)</strong>.</p>\n<p><strong da
+ ta-start="418" data-end="427">Note:</strong><span>&nbsp\;</span>We do<span
+ >&nbsp\;</span><strong data-start="434" data-end="441">not</strong><span>&
+ nbsp\;</span>require any specific content in your webpage. You are free to
+  choose the topic\, purpose\, and style (resume/CV\, portfolio\, “About 
+ me\,” a hobby\, course notes\, or anything else appropriate (e.g.\, pics
+ \, videos\, audio files)). The focus of this assignment is learning the pr
+ ocess of creating/publishing and hosting\, not what the site is about.</p>
+ \n<p>Thanks &amp\; Regards\,</p>\n<p>Zhengkun</p>\n<p>&nbsp\;</p>\n<p>Refe
+ rences to Follow (Must Read):</p>\n<p><a class="external" href="https://do
+ cs.github.com/en/pages/getting-started-with-github-pages/creating-a-github
+ -pages-site" target="_blank"><span>https://docs.github.com/en/pages/gettin
+ g-started-with-github-pages/creating-a-github-pages-site</span><span class
+ ="external_link_icon" role="presentation"><span class="screenreader-only">
+ Links to an external site.</span></span></a></p>\n<p><a class="external" h
+ ref="https://www.khanacademy.org/computing/computer-programming/html-css/w
+ eb-development-tools/a/hosting-your-website-on-github" target="_blank"><sp
+ an>https://www.khanacademy.org/computing/computer-programming/html-css/web
+ -development-tools/a/hosting-your-website-on-github</span><span class="ext
+ ernal_link_icon" role="presentation"><span class="screenreader-only">Links
+  to an external site.</span></span></a></p>\n<p>Website Templates:</p>\n<p
+ ><a class="external" href="https://github.com/website-templates" target="_
+ blank"><span>https://github.com/website-templates</span><span class="exter
+ nal_link_icon" role="presentation"><span class="screenreader-only">Links t
+ o an external site.</span></span></a></p>\n<p>Video:</p>\n<p><a class="ext
+ ernal youtubed" href="https://www.youtube.com/watch?v=e5AwNU3Y2es" target=
+ "_blank"><span>https://www.youtube.com/watch?v=e5AwNU3Y2es</span><span cla
+ ss="external_link_icon" role="presentation"><span class="screenreader-only
+ ">Links to an external site.</span></span></a></p>\n<p>(Please also do sea
+ rch(es) on YouTube for the tutorials you'd like to watch)</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260114T162000Z
+UID:event-assignment-948412
+DTSTART;VALUE=DATE;VALUE=DATE:20260125
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter #1 HW #2 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=01&year=2026#assignment_948412
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260114T162000Z
+UID:event-assignment-948410
+DTSTART;VALUE=DATE;VALUE=DATE:20260125
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 1 Foundational HW #1 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=01&year=2026#assignment_948410
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260114T162000Z
+UID:event-assignment-948411
+DTSTART;VALUE=DATE;VALUE=DATE:20260125
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:HW - CH 01 Concept Overviews\, Exercises\, Problems [ACC-2280-002-S
+ 26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=01&year=2026#assignment_948411
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260127T130000Z
+UID:event-assignment-951827
+DTSTART:20260127T141500Z
+DTEND:20260127T141500Z
+CLASS:PUBLIC
+DESCRIPTION:Please submit your response to the in-class prompts here.
+SEQUENCE:0
+SUMMARY:27 Jan 2026 [ENG-2200-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3858
+ 4&month=01&year=2026#assignment_951827
+X-ALT-DESC;FMTTYPE=text/html:<p><span>Please submit your response to the in
+ -class prompts here.</span></p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260125T183000Z
+UID:event-assignment-951486
+DTSTART;VALUE=DATE;VALUE=DATE:20260128
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:SB 2.0 - CH 02 (Pre-Work) [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=01&year=2026#assignment_951486
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260122T234200Z
+UID:event-assignment-951187
+DTSTART;VALUE=DATE;VALUE=DATE:20260128
+CLASS:PUBLIC
+DESCRIPTION:Please complete Assignment #1 (downloadable from Announcement) 
+ by Wednesday\, 01/28/2026.\n\n*\n\nFor the multiple-choice questions\, pl
+ ease use the yellow highlight tool in Word to mark your selected answers
+ .\n\n*\n\nFor the short-answer questions\, respond to each in 1–2 comp
+ lete sentences based on your understanding.\n\nPlease read through the ar
+ ticle from AWS Amazon when you have a little extra time: https://aws.amazo
+ n.com/what-is/osi-model/.\n\nThanks & Regards\,\n\nZhengkun
+SEQUENCE:0
+SUMMARY:Assignment #1 [CSC-3360-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3973
+ 1&month=01&year=2026#assignment_951187
+X-ALT-DESC;FMTTYPE=text/html:<p>Please complete Assignment #1 (downloadable
+  from Announcement) by Wednesday\, 01/28/2026.</p>\n<ul data-start="206" d
+ ata-end="441">\n<li data-start="206" data-end="328">\n<p data-start="208" 
+ data-end="328">For the<span>&nbsp\;</span><strong data-start="216" data-en
+ d="245">multiple-choice questions</strong>\, please use the<span>&nbsp\;</
+ span><strong data-start="262" data-end="287">yellow highlight tool</strong
+ ><span>&nbsp\;</span>in Word to mark your selected answers.</p>\n</li>\n<l
+ i data-start="329" data-end="441">\n<p data-start="331" data-end="441">For
+  the<span>&nbsp\;</span><strong data-start="339" data-end="365">short-answ
+ er questions</strong>\, respond to each in<span>&nbsp\;</span><strong data
+ -start="386" data-end="412">1–2 complete sentences</strong><span>&nbsp\;
+ </span>based on your understanding.</p>\n</li>\n</ul>\n<p>Please read thro
+ ugh the article from AWS Amazon when you have a little extra time:<span> <
+ a href="https://aws.amazon.com/what-is/osi-model/" target="_blank">https:/
+ /aws.amazon.com/what-is/osi-model/</a>.</span></p>\n<p>Thanks &amp\; Regar
+ ds\,</p>\n<p>Zhengkun</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260122T184500Z
+UID:event-assignment-922450
+DTSTART;VALUE=DATE;VALUE=DATE:20260130
+CLASS:PUBLIC
+DESCRIPTION:This simulated experiment examines the composition of atoms\, t
+ he stabilities of light element isotopes\, and the structures of simple mo
+ lecules. \n\nNOTES:\n\n* You should begin work on this experiment as soon
+  as practical\, and should consult me with any questions/etc. at your disc
+ retion. Please allow a reasonable amount of time for me to respond to your
+  inquiries (typically no longer than one working day). Requesting assistan
+ ce on the day the assignment is due is strongly discouraged.\n\n* You may 
+ take as much time as needed (prior to the submission deadline) to complete
+  this experiment\, but may only "submit" the assignment once.  Informatio
+ n you enter will be saved if you leave the assignment page without submitt
+ ing.  \n\n* As for all our module experiments\, I will review each stude
+ nt's submission after the due date has passed to score any items that are 
+ not automatically scored (and to double-check the auto-scored items).  Fi
+ nal assignment scores and answer keys/feedback will typically be posted a 
+ day or two after the submission due date.
+SEQUENCE:0
+SUMMARY:module 1 experiment [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=01&year=2026#assignment_922450
+X-ALT-DESC;FMTTYPE=text/html:<p>This simulated experiment examines the comp
+ osition of atoms\, the stabilities of light element isotopes\, and the str
+ uctures of simple molecules.&nbsp\;</p>\n<p><em>NOTES:</em></p>\n<ul>\n<li
+ ><em>You should begin work on this experiment as soon as practical\, and s
+ hould consult me with any questions/etc. at your discretion. Please allow 
+ a reasonable amount of time for me to respond to your inquiries (typically
+  no longer than one working day). Requesting assistance on the day the ass
+ ignment is due is strongly discouraged.</em></li>\n<li><em>You may take as
+  much time as needed (prior to the submission deadline) to complete this e
+ xperiment\, but may only "submit" the assignment once.&nbsp\; Information 
+ you enter will be saved if you leave the assignment page without submittin
+ g.&nbsp\;&nbsp\;</em></li>\n<li><em>As for all our module experiments\, I 
+ will review each student's submission after the due date has passed to sco
+ re any items that are not automatically scored (and to double-check the au
+ to-scored items).&nbsp\; Final assignment scores and answer keys/feedback 
+ will typically be posted a day or two after the submission due date.</em><
+ /li>\n</ul>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260125T183000Z
+UID:event-assignment-951488
+DTSTART;VALUE=DATE;VALUE=DATE:20260201
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 2 Foundational HW [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_951488
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260125T183000Z
+UID:event-assignment-951487
+DTSTART;VALUE=DATE;VALUE=DATE:20260201
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 2 HW #2 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_951487
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260125T183000Z
+UID:event-assignment-951489
+DTSTART;VALUE=DATE;VALUE=DATE:20260201
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:HW - CH 02 Concept Overviews\, Exercises\, Problems [ACC-2280-002-S
+ 26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_951489
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260122T184700Z
+UID:event-assignment-928309
+DTSTART;VALUE=DATE;VALUE=DATE:20260201
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 1 homework [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=02&year=2026#assignment_928309
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260211T213100Z
+UID:event-assignment-922458
+DTSTART:20260203T143000Z
+DTEND:20260203T143000Z
+CLASS:PUBLIC
+DESCRIPTION:* in-person test covering module content\n\n* bring no. 2 penci
+ l and calculator\n\n* information document / scratch paper will be provide
+ d\n\n* 20-30 questions/problems\, multiple-choice format\n\n* 60 min time 
+ limit\n\n***click [here ] (https://canvas.uncp.edu/courses/38362/files/698
+ 7143?wrap=1)to view the test key***
+SEQUENCE:0
+SUMMARY:module 1 test [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=02&year=2026#assignment_922458
+X-ALT-DESC;FMTTYPE=text/html:<ul>\n<li>in-person test covering module conte
+ nt</li>\n<li>bring no. 2 pencil and calculator</li>\n<li>information docum
+ ent / scratch paper will be provided</li>\n<li>20-30 questions/problems\, 
+ multiple-choice format</li>\n<li>60 min time limit</li>\n</ul>\n<p>***clic
+ k <a class="instructure_file_link instructure_scribd_file inline_disabled"
+  title="mod1test2026spring_key.pdf" href="https://canvas.uncp.edu/courses/
+ 38362/files/6987143?wrap=1" target="_blank" data-canvas-previewable="false
+ " data-api-endpoint="https://canvas.uncp.edu/api/v1/courses/38362/files/69
+ 87143" data-api-returntype="File"><strong>here </strong></a>to view the te
+ st key***</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260211T194700Z
+UID:event-assignment-943238
+DTSTART;VALUE=DATE;VALUE=DATE:20260203
+CLASS:PUBLIC
+DESCRIPTION:AES1: Literary Analysis Methods and Indigenous Literary Studies
+ \n\nAssignment Overview\n\nThis assignment serves two main purposes:\n\nSk
+ ill Development: Practice locating\, using\, and discussing textual eviden
+ ce (i.e.\, quotations) to support an argumentative interpretation.\n\nUnde
+ rstanding Check: Demonstrate your understanding of:\n\n*\n\n*\n\n* Daniel 
+ Heath Justice’s essay “Stories that Wound\, Stories that Heal”\n\n* 
+ Sherman Alexie’s short story “This is What it Means to Say Phoenix\, A
+ rizona”\n\n* Linda Hogan’s poem “The Truth Is”\n\nLiterary Concept
+ s to Know\n\nYou’ll need to be familiar with the following literary conc
+ epts for both fiction and poetry:\n\n* Plot\n\n* Narration\n\n* Character 
+ (for fiction) / Speaker (for poetry)\n\n* Symbol\n\n* Figurative Language 
+ / Figures of Speech\n\n* Theme\n\nEach of these areas is covered in the re
+ ading packets for this unit\, so refer back to them while you complete the
+  assignment.\n\nTexts to Engage With\n\n* Daniel Heath Justice’s “Stor
+ ies that Wound\, Stories that Heal”\n\n* Sherman Alexie’s “This is W
+ hat it Means to Say Phoenix\, Arizona”\n\n* Linda Hogan’s “The Truth
+  Is”\n\nUse your Perusall discussions and notes/comments to help guide y
+ our analysis and interpretation.\n\nAssignment Scenario & Format\n\nImagin
+ e you are part of a study group. Your role is to organize main ideas from 
+ the assigned texts\, link them\, and discuss possible arguments you could 
+ make using “Stories that Wound\, Stories that Heal” as a “lens” to
+  look at “This is What it Means to Say Phoenix\, Arizona” and “The T
+ ruth Is.”\n\nTo accomplish these goals\, you’ll use a What / Where / H
+ ow structure to organize your ideas:\n\nWhat? – What is the main idea or
+  theme?\n\nWhere? – Where in the text is this idea shown? (Use direct qu
+ otations.)\n\nHow? – How does the quote support your interpretation? (Ex
+ plain using relevant parts of the quote.)\n\nYou’ll represent these conn
+ ections using the table in the provided template (linked at the end of the
+  assignment).\n\nTemplate Access\n\nRefer to the linked Excel sheet for th
+ is assignment\, which you can download by clicking here: [AES1_Template.do
+ cx] (https://canvas.uncp.edu/courses/38584/files/6949244?wrap=1) . This
+  template includes columns for each category and is designed to help you c
+ learly organize your analysis. You should type your answers directly into 
+ the cells on the Excel sheet\, then upload the completed version here as y
+ our submission.\n\nThis assignment is designed to help you build foundatio
+ nal skills in literary analysis while also giving you a chance to demonstr
+ ate your understanding of key texts and concepts. By practicing how to ide
+ ntify and interpret textual evidence\, and by making meaningful connection
+ s across different genres and voices\, you’re preparing for more complex
+  analytical work later in the course. The format is intentionally straight
+ forward to keep the focus on your ideas and your ability to support them w
+ ith evidence. If you have any questions or concerns as you prepare this as
+ signment\, please email me: [zachary.laminack@uncp.edu] (mailto:zachary.la
+ minack@uncp.edu). 
+SEQUENCE:0
+SUMMARY:AES1: Literary Analysis Methods and Indigenous Literary Studies (W1
+ &2) [ENG-2200-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3858
+ 4&month=02&year=2026#assignment_943238
+X-ALT-DESC;FMTTYPE=text/html:<p><span style="color: #0e68b3\; font-size: 18
+ pt\;"><strong>AES1: </strong></span><span style="color: #0e68b3\; font-siz
+ e: 18pt\;"><strong>Literary Analysis Methods and Indigenous Literary Studi
+ es</strong></span></p>\n<hr>\n<p><strong>Assignment Overview</strong></p>\
+ n<p>This assignment serves two main purposes:</p>\n<p style="padding-left:
+  40px\;"><strong>Skill Development:</strong> Practice locating\, using\, a
+ nd discussing textual evidence (i.e.\, quotations) to support an argumenta
+ tive interpretation.</p>\n<p style="padding-left: 40px\;"><strong>Understa
+ nding Check:</strong> Demonstrate your understanding of:</p>\n<ul>\n<li st
+ yle="list-style-type: none\;">\n<ul>\n<li style="list-style-type: none\;">
+ \n<ul>\n<li>Daniel Heath Justice’s essay “Stories that Wound\, Stories
+  that Heal”</li>\n<li>Sherman Alexie’s short story “This is What it 
+ Means to Say Phoenix\, Arizona”</li>\n<li>Linda Hogan’s poem “The Tr
+ uth Is”</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<hr>\n<p><strong>Litera
+ ry Concepts to Know</strong></p>\n<p>You’ll need to be familiar with the
+  following literary concepts for both fiction and poetry:</p>\n<ul>\n<li>P
+ lot</li>\n<li>Narration</li>\n<li>Character (for fiction) / Speaker (for p
+ oetry)</li>\n<li>Symbol</li>\n<li>Figurative Language / Figures of Speech<
+ /li>\n<li>Theme</li>\n</ul>\n<p>Each of these areas is covered in the read
+ ing packets for this unit\, so refer back to them while you complete the a
+ ssignment.</p>\n<hr>\n<p><strong>Texts to Engage With</strong></p>\n<ul>\n
+ <li>Daniel Heath Justice’s “Stories that Wound\, Stories that Heal”<
+ /li>\n<li>Sherman Alexie’s “This is What it Means to Say Phoenix\, Ari
+ zona”</li>\n<li>Linda Hogan’s “The Truth Is”</li>\n</ul>\n<p>Use y
+ our Perusall discussions and notes/comments to help guide your analysis an
+ d interpretation.</p>\n<hr>\n<p><strong>Assignment Scenario &amp\; Format<
+ /strong></p>\n<p>Imagine you are part of a study group. Your role is to or
+ ganize main ideas from the assigned texts\, link them\, and discuss possib
+ le arguments you could make using “Stories that Wound\, Stories that Hea
+ l” as a “lens” to look at “This is What it Means to Say Phoenix\, 
+ Arizona” and “The Truth Is.”</p>\n<p>To accomplish these goals\, you
+ ’ll use a What / Where / How structure to organize your ideas:</p>\n<p s
+ tyle="padding-left: 40px\;"><strong>What?</strong> – What is the main id
+ ea or theme?</p>\n<p style="padding-left: 40px\;"><strong>Where?</strong> 
+ – Where in the text is this idea shown? (Use direct quotations.)</p>\n<p
+  style="padding-left: 40px\;"><strong>How?</strong> – How does the quote
+  support your interpretation? (Explain using relevant parts of the quote.)
+ </p>\n<p>You’ll represent these connections using the table in the provi
+ ded template (linked at the end of the assignment).</p>\n<hr>\n<p><strong>
+ Template Access</strong></p>\n<p>Refer to the linked Excel sheet for this 
+ assignment\, which you can download by clicking here: <a class="instructur
+ e_file_link instructure_scribd_file inline_disabled" title="AES1_Template.
+ docx" href="https://canvas.uncp.edu/courses/38584/files/6949244?wrap=1" ta
+ rget="_blank" data-api-endpoint="https://canvas.uncp.edu/api/v1/courses/38
+ 584/files/6949244" data-api-returntype="File">AES1_Template.docx</a> . 
+ This template includes columns for each category and is designed to help y
+ ou clearly organize your analysis. You should type your answers directly i
+ nto the cells on the Excel sheet\, then upload the completed version here 
+ as your submission.</p>\n<hr>\n<p><span style="font-size: 10pt\;"><strong>
+ This assignment</strong> is designed to help you build foundational skills
+  in literary analysis while also giving you a chance to demonstrate your u
+ nderstanding of key texts and concepts. By practicing how to identify and 
+ interpret textual evidence\, and by making meaningful connections across d
+ ifferent genres and voices\, you’re preparing for more complex analytica
+ l work later in the course. The format is intentionally straightforward to
+  keep the focus on your ideas and your ability to support them with eviden
+ ce. If you have any questions or concerns as you prepare this assignment\,
+  please email me: <a href="mailto:zachary.laminack@uncp.edu" target="_blan
+ k">zachary.laminack@uncp.edu</a>.&nbsp\;</span></p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260202T180000Z
+UID:event-assignment-952661
+DTSTART;VALUE=DATE;VALUE=DATE:20260205
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:SB 2.0 - CH 03 (Pre-Work) [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952661
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260202T180000Z
+UID:event-assignment-952663
+DTSTART;VALUE=DATE;VALUE=DATE:20260208
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 3 HW #1 Foundational [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952663
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260202T180000Z
+UID:event-assignment-952662
+DTSTART;VALUE=DATE;VALUE=DATE:20260208
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:HW - CH 03 Concept Overviews\, Exercises\, Problems [ACC-2280-002-S
+ 26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952662
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260220T093800Z
+UID:event-assignment-override-54795
+DTSTART:20260209T183000Z
+DTEND:20260209T183000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chemistry lab quiz (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=02&year=2026#assignment_946618
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260204T162600Z
+UID:event-assignment-952664
+DTSTART;VALUE=DATE;VALUE=DATE:20260209
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 3 HW #2 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952664
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260214T055800Z
+UID:event-assignment-953089
+DTSTART:20260213T161500Z
+DTEND:20260213T161500Z
+CLASS:PUBLIC
+DESCRIPTION:You’ll build a small Python tool to measure key network perf
+ ormance metrics—latency (ping)\, download throughput\, and upload thro
+ ughput—and log them over time. This connects directly to core networking
+  ideas: how bandwidth differs from throughput\, why latency and jitt
+ er shape user experience\, and how conditions like Wi-Fi vs. wired\, co
+ ngestion/peak hours\, routing distance (server selection)\, and protocol
+ /ISP policies affect measured performance. By collecting multiple measure
+ ments across different times and contexts\, you’ll practice measurement
+  methodology (repeat trials\, consistent conditions) and interpret result
+ s using concepts from the course (e.g.\, queueing delay\, last-mile constr
+ aints\, and path diversity).\n\nIn Short: You’ll create a small Python 
+ app that measures your network download speed\, upload speed\, and late
+ ncy (ping). You’ll practice working with third-party libraries and basi
+ c data visualization. You may turn in the screenshot of your App/Running 
+ Program or simply the link of your Jupyter Notebook/Python Scripts\; the 
+ format is not that important.\n\nYou may follow any tutorial(s) you would 
+ like to follow.\n\nReferences:\n\nhttps://codecapers.com.au/automated-inte
+ rnet-speed-testing/\n\nhttps://opensource.com/article/20/1/internet-speed-
+ tests\n\nhttps://python.plainenglish.io/internet-speed-tester-using-python
+ -d36ec9da7021\n\nhttps://ayushi7rawat.medium.com/internet-speed-test-using
+ -python-15b8f2e6bbef\n\nhttps://github.com/openspeedtest/Speed-Test\n\nhtt
+ ps://github.com/sivel/speedtest-cli?tab=readme-ov-file#inconsistency\n\nVi
+ deos:\n\nhttps://www.youtube.com/watch?v=k_Ip_uRKvm4\n\nhttps://www.youtub
+ e.com/watch?v=cpFGz84FbUc\n\nhttps://www.youtube.com/watch?v=iM2Ylk1CQ20\n
+ \nhttps://www.youtube.com/watch?v=DqWIYX_ynQg\n\netc.\n\nMy Sample:\n\n[im
+ age.png] (https://canvas.uncp.edu/courses/39731/files/6968727/preview)
+SEQUENCE:0
+SUMMARY:Build an Internet Speed Tester in Python [CSC-3360-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3973
+ 1&month=02&year=2026#assignment_953089
+X-ALT-DESC;FMTTYPE=text/html:<p data-start="130" data-end="902">You’ll bu
+ ild a small Python tool to measure key<span>&nbsp\;</span><strong data-sta
+ rt="178" data-end="209">network performance metrics</strong>—<strong dat
+ a-start="210" data-end="228">latency (ping)</strong>\,<span>&nbsp\;</span>
+ <strong data-start="230" data-end="253">download throughput</strong>\, and
+ <span>&nbsp\;</span><strong data-start="259" data-end="280">upload through
+ put</strong>—and log them over time. This connects directly to core netw
+ orking ideas: how<span>&nbsp\;</span><strong data-start="358" data-end="37
+ 1">bandwidth</strong><span>&nbsp\;</span>differs from<span>&nbsp\;</span><
+ strong data-start="385" data-end="399">throughput</strong>\, why<span>&nbs
+ p\;</span><strong data-start="405" data-end="416">latency</strong><span>&n
+ bsp\;</span>and<span>&nbsp\;</span><strong data-start="421" data-end="431"
+ >jitter</strong><span>&nbsp\;</span>shape user experience\, and how condit
+ ions like<span>&nbsp\;</span><strong data-start="479" data-end="498">Wi-Fi
+  vs. wired</strong>\,<span>&nbsp\;</span><strong data-start="500" data-end
+ ="525">congestion/peak hours</strong>\,<span>&nbsp\;</span><strong data-st
+ art="527" data-end="566">routing distance (server selection)</strong>\, an
+ d<span>&nbsp\;</span><strong data-start="572" data-end="597">protocol/ISP 
+ policies</strong><span>&nbsp\;</span>affect measured performance. By colle
+ cting multiple measurements across different times and contexts\, you’ll
+  practice<span>&nbsp\;</span><strong data-start="716" data-end="743">measu
+ rement methodology</strong><span>&nbsp\;</span>(repeat trials\, consistent
+  conditions) and interpret results using concepts from the course (e.g.\, 
+ queueing delay\, last-mile constraints\, and path diversity).</p>\n<p data
+ -start="130" data-end="902"><strong>In Short</strong>:&nbsp\;You’ll crea
+ te a small Python app that measures your network<span>&nbsp\;</span><stron
+ g data-start="128" data-end="146">download speed</strong>\,<span>&nbsp\;</
+ span><strong data-start="148" data-end="164">upload speed</strong>\, and<s
+ pan>&nbsp\;</span><strong data-start="170" data-end="188">latency (ping).<
+ span>&nbsp\;</span></strong>You’ll practice working with third-party lib
+ raries and basic data visualization. You may turn in the screenshot of you
+ r<span>&nbsp\;</span><span>App/Running Program</span><span>&nbsp\;</span>o
+ r simply the link of your J<span>upyter Notebook/Python Scripts</span>\; t
+ he format is not that important.</p>\n<p data-start="130" data-end="902">Y
+ ou may follow any tutorial(s) you would like to follow.</p>\n<p data-start
+ ="130" data-end="902">References:</p>\n<p data-start="130" data-end="902">
+ <a class="external" href="https://codecapers.com.au/automated-internet-spe
+ ed-testing/" target="_blank"><span>https://codecapers.com.au/automated-int
+ ernet-speed-testing/</span></a></p>\n<p data-start="130" data-end="902"><a
+  class="external" href="https://opensource.com/article/20/1/internet-speed
+ -tests" target="_blank"><span>https://opensource.com/article/20/1/internet
+ -speed-tests</span></a></p>\n<p data-start="130" data-end="902"><a class="
+ external" href="https://python.plainenglish.io/internet-speed-tester-using
+ -python-d36ec9da7021" target="_blank"><span>https://python.plainenglish.io
+ /internet-speed-tester-using-python-d36ec9da7021</span></a></p>\n<p data-s
+ tart="130" data-end="902"><a class="external" href="https://ayushi7rawat.m
+ edium.com/internet-speed-test-using-python-15b8f2e6bbef" target="_blank"><
+ span>https://ayushi7rawat.medium.com/internet-speed-test-using-python-15b8
+ f2e6bbef</span></a></p>\n<p data-start="130" data-end="902"><a class="exte
+ rnal" href="https://github.com/openspeedtest/Speed-Test" target="_blank"><
+ span>https://github.com/openspeedtest/Speed-Test</span></a></p>\n<p data-s
+ tart="130" data-end="902"><a class="external" href="https://github.com/siv
+ el/speedtest-cli?tab=readme-ov-file#inconsistency" target="_blank"><span>h
+ ttps://github.com/sivel/speedtest-cli?tab=readme-ov-file#inconsistency</sp
+ an></a></p>\n<p data-start="130" data-end="902">Videos:</p>\n<p data-start
+ ="130" data-end="902"><a class="external youtubed" href="https://www.youtu
+ be.com/watch?v=k_Ip_uRKvm4" target="_blank"><span>https://www.youtube.com/
+ watch?v=k_Ip_uRKvm4</span></a></p>\n<p data-start="130" data-end="902"><a 
+ class="external youtubed" href="https://www.youtube.com/watch?v=cpFGz84FbU
+ c" target="_blank"><span>https://www.youtube.com/watch?v=cpFGz84FbUc</span
+ ></a></p>\n<p data-start="130" data-end="902"><a class="external youtubed"
+  href="https://www.youtube.com/watch?v=iM2Ylk1CQ20" target="_blank"><span>
+ https://www.youtube.com/watch?v=iM2Ylk1CQ20</span></a></p>\n<p data-start=
+ "130" data-end="902"><a class="external youtubed" href="https://www.youtub
+ e.com/watch?v=DqWIYX_ynQg" target="_blank"><span>https://www.youtube.com/w
+ atch?v=DqWIYX_ynQg</span></a></p>\n<p data-start="130" data-end="902">etc.
+ </p>\n<p data-start="130" data-end="902"><strong>My Sample:</strong></p>\n
+ <p data-start="130" data-end="902"><img src="https://canvas.uncp.edu/cours
+ es/39731/files/6968727/preview" alt="image.png" width="268" height="638" l
+ oading="lazy" data-api-endpoint="https://canvas.uncp.edu/api/v1/courses/39
+ 731/files/6968727" data-api-returntype="File"></p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260220T004200Z
+UID:event-assignment-952915
+DTSTART:20260216T161000Z
+DTEND:20260216T161000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Acct 2280 EXAM #1 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952915
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260220T093500Z
+UID:event-assignment-override-54829
+DTSTART:20260216T183000Z
+DTEND:20260216T183000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Basic Lab Techniques Report 1 (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=02&year=2026#assignment_909568
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260204T170000Z
+UID:event-assignment-952914
+DTSTART;VALUE=DATE;VALUE=DATE:20260216
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:(OPTIONAL) Acct 2280 EXAM #1 PREP [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_952914
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260213T030100Z
+UID:event-assignment-954047
+DTSTART:20260220T161500Z
+DTEND:20260220T161500Z
+CLASS:PUBLIC
+DESCRIPTION:Hi All\,\n\nPlease find the attached Assignment #2 - [CSC 3360_
+ Assignment #2.docx] (https://canvas.uncp.edu/courses/39731/files/6990578?w
+ rap=1)\n\n*\n\nFor the multiple-choice questions\, please use the yellow
+  highlight tool in Word to mark your selected answers.\n\n*\n\nFor the s
+ hort-answer questions\, provide clear and concise responses in 2–3 sent
+ ences each. For instance\, for Q11\, we may state that "Client-server rel
+ ies on centralized\, always-on servers with permanent IPs\, while P2P dist
+ ributes tasks across peers\, adding scalability but more management comple
+ xity."\n\nPlease submit your completed document by Friday\, February 20th
+ \, before the class time.\n\nLet me know if you have any questions!\n\nTh
+ anks & Regards\,\nZhengkun
+SEQUENCE:0
+SUMMARY:Assignment #2 [CSC-3360-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3973
+ 1&month=02&year=2026#assignment_954047
+X-ALT-DESC;FMTTYPE=text/html:<p>Hi All\,</p>\n<p>Please find the attached A
+ ssignment #2 - <a class="instructure_file_link instructure_scribd_file inl
+ ine_disabled" title="CSC 3360_Assignment #2.docx" href="https://canvas.unc
+ p.edu/courses/39731/files/6990578?wrap=1" target="_blank" data-canvas-prev
+ iewable="false" data-api-endpoint="https://canvas.uncp.edu/api/v1/courses/
+ 39731/files/6990578" data-api-returntype="File">CSC 3360_Assignment #2.doc
+ x</a></p>\n<ul data-start="206" data-end="441">\n<li data-start="206" data
+ -end="328">\n<p data-start="208" data-end="328">For the<span>&nbsp\;</span
+ ><strong data-start="216" data-end="245">multiple-choice questions</strong
+ >\, please use the<span>&nbsp\;</span><strong data-start="262" data-end="2
+ 87">yellow highlight tool</strong><span>&nbsp\;</span>in Word to mark your
+  selected answers.</p>\n</li>\n<li data-start="329" data-end="441">\n<p da
+ ta-start="331" data-end="441">For the<span>&nbsp\;</span><strong data-star
+ t="339" data-end="365">short-answer questions</strong>\, provide clear and
+  concise responses in<span>&nbsp\;</span><strong>2–3 sentences each.&nbs
+ p\;</strong>For instance\, for Q11\, we may state that "Client-server reli
+ es on centralized\, always-on servers with permanent IPs\, while P2P distr
+ ibutes tasks across peers\, adding scalability but more management complex
+ ity."</p>\n</li>\n</ul>\n<p data-start="443" data-end="514">Please submit 
+ your completed document by<span>&nbsp\;</span><strong data-start="486" dat
+ a-end="513">Friday\, February 20th\,<span>&nbsp\;</span></strong>before th
+ e class time.</p>\n<p data-start="516" data-end="576">Let me know if you h
+ ave any questions!</p>\n<p data-start="578" data-end="602">Thanks &amp\; R
+ egards\,<br data-start="591" data-end="594">Zhengkun</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260211T181200Z
+UID:event-assignment-override-54852
+DTSTART:20260220T220000Z
+DTEND:20260220T220000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Using Excel (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=02&year=2026#assignment_947222
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T225100Z
+UID:event-assignment-922454
+DTSTART;VALUE=DATE;VALUE=DATE:20260220
+CLASS:PUBLIC
+DESCRIPTION:This simulated experiment investigates the changes associated w
+ ith common chemical reactions. \n\nNOTES:\n\n* You should begin work on t
+ his experiment as soon as practical\, and should consult me with any quest
+ ions/etc. at your discretion. Please allow a reasonable amount of time for
+  me to respond to your inquiries (typically no longer than one working day
+ ). Requesting assistance on the day the assignment is due is strongly disc
+ ouraged.\n\n* You may take as much time as needed (prior to the submission
+  deadline) to complete this experiment\, but may only "submit" the assignm
+ ent once.  Information you enter will be saved if you leave the assignmen
+ t page without submitting.  \n\n* As for all our module experiments\, I 
+ will review each student's submission after the due date has passed to sco
+ re any items that are not automatically scored (and to double-check the au
+ to-scored items).  Final assignment scores and answer keys/feedback will 
+ typically be posted a day or two after the submission due date.
+SEQUENCE:0
+SUMMARY:module 2 experiment [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=02&year=2026#assignment_922454
+X-ALT-DESC;FMTTYPE=text/html:<p>This simulated experiment investigates the 
+ changes associated with common chemical reactions.&nbsp\;</p>\n<p><em>NOTE
+ S:</em></p>\n<ul>\n<li><em>You should begin work on this experiment as soo
+ n as practical\, and should consult me with any questions/etc. at your dis
+ cretion. Please allow a reasonable amount of time for me to respond to you
+ r inquiries (typically no longer than one working day). Requesting assista
+ nce on the day the assignment is due is strongly discouraged.</em></li>\n<
+ li><em>You may take as much time as needed (prior to the submission deadli
+ ne) to complete this experiment\, but may only "submit" the assignment onc
+ e.&nbsp\; Information you enter will be saved if you leave the assignment 
+ page without submitting.&nbsp\;&nbsp\;</em></li>\n<li><em>As for all our m
+ odule experiments\, I will review each student's submission after the due 
+ date has passed to score any items that are not automatically scored (and 
+ to double-check the auto-scored items).&nbsp\; Final assignment scores and
+  answer keys/feedback will typically be posted a day or two after the subm
+ ission due date.</em></li>\n</ul>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260218T000000Z
+UID:event-assignment-954568
+DTSTART;VALUE=DATE;VALUE=DATE:20260222
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 4 Foundational HW [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_954568
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260218T000000Z
+UID:event-assignment-954567
+DTSTART;VALUE=DATE;VALUE=DATE:20260222
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 4 HW #2 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_954567
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260218T000000Z
+UID:event-assignment-954565
+DTSTART;VALUE=DATE;VALUE=DATE:20260222
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:HW - CH 04 Concept Overviews\, Exercises\, Problems [ACC-2280-002-S
+ 26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_954565
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T224600Z
+UID:event-assignment-928310
+DTSTART;VALUE=DATE;VALUE=DATE:20260222
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 2 homework [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=02&year=2026#assignment_928310
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260218T000000Z
+UID:event-assignment-954566
+DTSTART;VALUE=DATE;VALUE=DATE:20260222
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:SB 2.0 - CH 04 (Pre-Work) [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_954566
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260217T213100Z
+UID:event-assignment-override-54830
+DTSTART:20260223T183000Z
+DTEND:20260223T183000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Density of an irregular object Report (CHM-1100-705-S26) [CHM-1100-
+ 705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=02&year=2026#assignment_909570
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260219T132800Z
+UID:event-assignment-954799
+DTSTART:20260224T130000Z
+DTEND:20260224T130000Z
+CLASS:PUBLIC
+DESCRIPTION:Please ensure that your notes for the novel on your shared Ghos
+ t Singer Notes Google sheet are completed by the beginning of class on Tue
+ sday\, 2/24.\n\nAs a reminder\, your notes file should be in or should be 
+ moved to your shared Google folder.\n\nTo submit\, you can simply type "Ch
+ eck my google folder" in the textbox\, or you can include a link to your 
+ notes using the website URL option.
+SEQUENCE:0
+SUMMARY:Ghost Singer Notes [ENG-2200-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3858
+ 4&month=02&year=2026#assignment_954799
+X-ALT-DESC;FMTTYPE=text/html:<p>Please ensure that your notes for the novel
+  on your shared Ghost Singer Notes Google sheet are completed by the begin
+ ning of class on Tuesday\, 2/24.</p>\n<p>As a reminder\, your notes file s
+ hould be in or should be moved to your shared Google folder.</p>\n<p>To su
+ bmit\, you can simply type "Check my google folder" in the textbox\,&nbsp\
+ ;<strong>or</strong> you can include a link to your notes using the websit
+ e URL option.</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T224200Z
+UID:event-assignment-922460
+DTSTART:20260224T143000Z
+DTEND:20260224T143000Z
+CLASS:PUBLIC
+DESCRIPTION:* in-person test covering module content\n\n* bring no. 2 penci
+ l and calculator\n\n* information document / scratch paper will be provide
+ d\n\n* 20-30 questions/problems\, multiple-choice format\n\n* 60 min time 
+ limit
+SEQUENCE:0
+SUMMARY:module 2 test [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=02&year=2026#assignment_922460
+X-ALT-DESC;FMTTYPE=text/html:<ul>\n<li>in-person test covering module conte
+ nt</li>\n<li>bring no. 2 pencil and calculator</li>\n<li>information docum
+ ent / scratch paper will be provided</li>\n<li>20-30 questions/problems\, 
+ multiple-choice format</li>\n<li>60 min time limit</li>\n</ul>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260221T233000Z
+UID:event-assignment-955101
+DTSTART;VALUE=DATE;VALUE=DATE:20260226
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:SB 2.0 - CH 06 (Pre-Work) [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=02&year=2026#assignment_955101
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260220T003000Z
+UID:event-assignment-954919
+DTSTART:20260227T161500Z
+DTEND:20260227T161500Z
+CLASS:PUBLIC
+DESCRIPTION:You’ll build a small Python tool to set\, send\, update\, and
+  delete HTTP cookies\, and observe how cookies affect session state and us
+ er identity on the Web. This connects directly to core networking/web idea
+ s: how HTTP is stateless by default\, how cookies create stateful sessions
+ \, why cookies matter for authentication\, personalization\, and tracking\
+ , and how cookie attributes (Domain\, Path\, Expires/Max-Age\, Secure\, Ht
+ tpOnly\, SameSite) affect browser behavior and security. By testing cookie
+ s in different scenarios (same site vs cross-site requests\, HTTP vs HTTPS
+  simulation\, expiring vs persistent cookies)\, you’ll also practice bas
+ ic measurement/debugging methodology: capturing request/response headers\,
+  checking cookie jars\, repeating tests\, and explaining results using con
+ cepts from the course (HTTP request/response\, headers\, status codes\, se
+ ssions\, and common web security concerns like CSRF).\n\nIn Short:\nYou’
+ ll create a small Python app that can store cookies locally\, send cookies
+  in requests\, and manage cookie lifecycle (create/update/delete/expire). 
+ You’ll practice working with third-party libraries and basic debugging t
+ ools (printing headers\, logging). You may turn in screenshots of your run
+ ning program or simply a link to your Jupyter Notebook / Python script!\n\
+ nYou may use the videos as your implementation guide:\n\n* https://www.you
+ tube.com/watch?v=enBmKr4gI08\n\n* https://youtu.be/o0UDBlo5tOM\n\nPlease a
+ lso go through the article "Python Falcon - Cookies" - https://www.geeksf
+ orgeeks.org/python/python-falcon-cookies/\n\nDeliverables Example:\n\n[截
+ 屏2026-02-19 19.20.51.png] (https://canvas.uncp.edu/courses/39731/files/7
+ 009615/preview)[截屏2026-02-19 19.21.08.png] (https://canvas.uncp.edu/co
+ urses/39731/files/7009616/preview)
+SEQUENCE:0
+SUMMARY:Set and Manage Cookies via Python [CSC-3360-001-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3973
+ 1&month=02&year=2026#assignment_954919
+X-ALT-DESC;FMTTYPE=text/html:<p>You’ll build a small Python tool to set\,
+  send\, update\, and delete HTTP cookies\, and observe how cookies affect 
+ session state and user identity on the Web. This connects directly to core
+  networking/web ideas: how HTTP is stateless by default\, how cookies crea
+ te stateful sessions\, why cookies matter for authentication\, personaliza
+ tion\, and tracking\, and how cookie attributes (Domain\, Path\, Expires/M
+ ax-Age\, Secure\, HttpOnly\, SameSite) affect browser behavior and securit
+ y. By testing cookies in different scenarios (same site vs cross-site requ
+ ests\, HTTP vs HTTPS simulation\, expiring vs persistent cookies)\, you’
+ ll also practice basic measurement/debugging methodology: capturing reques
+ t/response headers\, checking cookie jars\, repeating tests\, and explaini
+ ng results using concepts from the course (HTTP request/response\, headers
+ \, status codes\, sessions\, and common web security concerns like CSRF).<
+ /p>\n<p><span style="text-decoration: underline\;">In Short:</span><br>You
+ ’ll create a small Python app that can store cookies locally\, send cook
+ ies in requests\, and manage cookie lifecycle (create/update/delete/expire
+ ). You’ll practice working with third-party libraries and basic debuggin
+ g tools (printing headers\, logging). <strong>You may turn in screenshots 
+ of your running program or simply a link to your Jupyter Notebook / Python
+  script!</strong></p>\n<p><strong>You may use the videos as your implement
+ ation guide:</strong></p>\n<ul>\n<li><a href="https://www.youtube.com/watc
+ h?v=enBmKr4gI08" target="_blank">https://www.youtube.com/watch?v=enBmKr4gI
+ 08</a></li>\n<li><a href="https://youtu.be/o0UDBlo5tOM" target="_blank">ht
+ tps://youtu.be/o0UDBlo5tOM</a></li>\n</ul>\n<p>Please also go through the 
+ article "Python Falcon - Cookies" -&nbsp\;<a href="https://www.geeksforgee
+ ks.org/python/python-falcon-cookies/" target="_blank">https://www.geeksfor
+ geeks.org/python/python-falcon-cookies/</a></p>\n<p>Deliverables Example:<
+ /p>\n<p><img src="https://canvas.uncp.edu/courses/39731/files/7009615/prev
+ iew" alt="截屏2026-02-19 19.20.51.png" width="270" height="202" loading=
+ "lazy" data-api-endpoint="https://canvas.uncp.edu/api/v1/courses/39731/fil
+ es/7009615" data-api-returntype="File"><img src="https://canvas.uncp.edu/c
+ ourses/39731/files/7009616/preview" alt="截屏2026-02-19 19.21.08.png" wi
+ dth="262" height="203" loading="lazy" data-api-endpoint="https://canvas.un
+ cp.edu/api/v1/courses/39731/files/7009616" data-api-returntype="File"></p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260221T233000Z
+UID:event-assignment-955103
+DTSTART;VALUE=DATE;VALUE=DATE:20260301
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 6 Foundational HW [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=03&year=2026#assignment_955103
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260221T233000Z
+UID:event-assignment-955104
+DTSTART;VALUE=DATE;VALUE=DATE:20260301
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Chapter 6 HW 2 [ACC-2280-002-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=03&year=2026#assignment_955104
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260221T233000Z
+UID:event-assignment-955102
+DTSTART;VALUE=DATE;VALUE=DATE:20260301
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:HW - CH 06 Concept Overviews\, Exercises\, Problems [ACC-2280-002-S
+ 26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3901
+ 3&month=03&year=2026#assignment_955102
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54832
+DTSTART:20260302T183000Z
+DTEND:20260302T183000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Separation of the components of a mixture lab report (CHM-1100-705-
+ S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=03&year=2026#assignment_909577
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260203T154800Z
+UID:event-assignment-952761
+DTSTART:20260303T223000Z
+DTEND:20260303T223000Z
+CLASS:PUBLIC
+DESCRIPTION:Join us for March's Student Organization Roundtable! We will be
+  discussing marketing and branding. One representative per organization sh
+ ould attend.
+SEQUENCE:0
+SUMMARY:March Student Organization Roundtable [Student Organization Resourc
+ e Center]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3933
+ 3&month=03&year=2026#assignment_952761
+X-ALT-DESC;FMTTYPE=text/html:<p>Join us for March's Student Organization Ro
+ undtable! We will be discussing marketing and branding. One representative
+  per organization should attend.</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54834
+DTSTART:20260316T120000Z
+DTEND:20260316T120000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Determining the Empirical Formula of a Compound Lab Report (CHM-110
+ 0-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=03&year=2026#assignment_909572
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T225000Z
+UID:event-assignment-922451
+DTSTART;VALUE=DATE;VALUE=DATE:20260317
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 3 experiment [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=03&year=2026#assignment_922451
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T225300Z
+UID:event-assignment-928311
+DTSTART;VALUE=DATE;VALUE=DATE:20260318
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 3 homework [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=03&year=2026#assignment_928311
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260123T224900Z
+UID:event-assignment-922462
+DTSTART:20260319T133000Z
+DTEND:20260319T133000Z
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 3 test [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=03&year=2026#assignment_922462
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54836
+DTSTART:20260323T173000Z
+DTEND:20260323T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Metathesis Reactions Lab Report (CHM-1100-705-S26) [CHM-1100-705-S2
+ 6]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=03&year=2026#assignment_909574
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54838
+DTSTART:20260330T173000Z
+DTEND:20260330T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Specific heat capacity of a metal report (CHM-1100-705-S26) [CHM-11
+ 00-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=03&year=2026#assignment_909578
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54840
+DTSTART:20260406T173000Z
+DTEND:20260406T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Determining Reaction Stoichiometry (CHM-1100-705-S26) [CHM-1100-705
+ -S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909571
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260203T154900Z
+UID:event-assignment-952762
+DTSTART:20260407T213000Z
+DTEND:20260407T213000Z
+CLASS:PUBLIC
+DESCRIPTION:Join us for April's Student Organization Roundtable! We will be
+  discussing transition and sustainability. One representative per organiza
+ tion should attend.
+SEQUENCE:0
+SUMMARY:April Student Organization Roundtable [Student Organization Resourc
+ e Center]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3933
+ 3&month=04&year=2026#assignment_952762
+X-ALT-DESC;FMTTYPE=text/html:<p>Join us for April's Student Organization Ro
+ undtable! We will be discussing transition and sustainability. One represe
+ ntative per organization should attend.</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260112T141600Z
+UID:event-assignment-922452
+DTSTART;VALUE=DATE;VALUE=DATE:20260412
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 4 experiment [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_922452
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54842
+DTSTART:20260413T173000Z
+DTEND:20260413T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Titration Lab report (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909579
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260106T155100Z
+UID:event-assignment-928312
+DTSTART;VALUE=DATE;VALUE=DATE:20260413
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 4 homework [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_928312
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260106T152100Z
+UID:event-assignment-922464
+DTSTART:20260414T133000Z
+DTEND:20260414T133000Z
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 4 test [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_922464
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54844
+DTSTART:20260420T173000Z
+DTEND:20260420T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Molecular shapes and VSEPR report (CHM-1100-705-S26) [CHM-1100-705-
+ S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909575
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260112T141800Z
+UID:event-assignment-922453
+DTSTART;VALUE=DATE;VALUE=DATE:20260426
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 5 experiment [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_922453
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260113T083600Z
+UID:event-assignment-override-54848
+DTSTART:20260427T172500Z
+DTEND:20260427T172500Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Lab Final (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909573
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260113T083700Z
+UID:event-assignment-override-54850
+DTSTART:20260427T172500Z
+DTEND:20260427T172500Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Notebook (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909576
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260126T130400Z
+UID:event-assignment-override-54846
+DTSTART:20260427T173000Z
+DTEND:20260427T173000Z
+CLASS:PUBLIC
+DESCRIPTION:
+SEQUENCE:0
+SUMMARY:Boyles Law lab report (CHM-1100-705-S26) [CHM-1100-705-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3834
+ 9&month=04&year=2026#assignment_909569
+X-ALT-DESC;FMTTYPE=text/html:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260106T155100Z
+UID:event-assignment-928313
+DTSTART;VALUE=DATE;VALUE=DATE:20260427
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 5 homework [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_928313
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260106T152300Z
+UID:event-assignment-922466
+DTSTART:20260428T133000Z
+DTEND:20260428T133000Z
+CLASS:PUBLIC
+SEQUENCE:0
+SUMMARY:module 5 test [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_922466
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260214T182900Z
+UID:event-assignment-928306
+DTSTART:20260430T133000Z
+DTEND:20260430T133000Z
+CLASS:PUBLIC
+DESCRIPTION:You will complete a term project that demonstrates a scientific
+  law or theory using the results of your physical and/or simulated experim
+ ental work following the time table below. I encourage you to consult me f
+ requently during all stages of your project work.\n\nactivity\n\ncompletio
+ n date\n\nselection / approval of project topic\n\nFri 27 Feb\n\napproval 
+ of experimental plan\n\nFri 13 Mar\n\nexperimental work / data analysis\n\
+ nFri 17 Apr\n\nsubmit complete draft of project summary presentation \n\n
+ Fri 24 Apr\n\n 
+SEQUENCE:0
+SUMMARY:term project [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=04&year=2026#assignment_928306
+X-ALT-DESC;FMTTYPE=text/html:<p>You will complete a term project that demon
+ strates a scientific law or theory using the results of your physical and/
+ or simulated experimental work following the time table below. I encourage
+  you to consult me frequently during all stages of your project work.</p>\
+ n<table style="border-collapse: collapse\; width: 39.8806%\; height: 145px
+ \; margin-left: auto\; margin-right: auto\;" border="1">\n<tbody>\n<tr sty
+ le="height: 29px\;">\n<td style="width: 72.652%\; text-align: center\; hei
+ ght: 29px\;"><span style="font-size: 10pt\;"><strong>activity</strong></sp
+ an></td>\n<td style="width: 27.348%\; text-align: center\; height: 29px\;"
+ ><span style="font-size: 10pt\;"><strong>completion date</strong></span></
+ td>\n</tr>\n<tr style="height: 29px\;">\n<td style="width: 72.652%\; text-
+ align: center\; height: 29px\;"><span style="font-size: 10pt\;">selection 
+ / approval of project topic</span></td>\n<td style="width: 27.348%\; text-
+ align: center\; height: 29px\;"><span style="font-size: 10pt\;">Fri 27 Feb
+ </span></td>\n</tr>\n<tr style="height: 29px\;">\n<td style="width: 72.652
+ %\; text-align: center\; height: 29px\;"><span style="font-size: 10pt\;">a
+ pproval of experimental plan</span></td>\n<td style="width: 27.348%\; text
+ -align: center\; height: 29px\;"><span style="font-size: 10pt\;">Fri 13 Ma
+ r</span></td>\n</tr>\n<tr style="height: 29px\;">\n<td style="width: 72.65
+ 2%\; text-align: center\; height: 29px\;"><span style="font-size: 10pt\;">
+ experimental work / data analysis</span></td>\n<td style="width: 27.348%\;
+  text-align: center\; height: 29px\;"><span style="font-size: 10pt\;">Fri 
+ 17 Apr</span></td>\n</tr>\n<tr style="height: 29px\;">\n<td style="width: 
+ 72.652%\; text-align: center\; height: 29px\;"><span style="font-size: 10p
+ t\;">submit complete draft of project summary presentation&nbsp\;</span></
+ td>\n<td style="width: 27.348%\; text-align: center\; height: 29px\;"><spa
+ n style="font-size: 10pt\;">Fri 24 Apr</span></td>\n</tr>\n</tbody>\n</tab
+ le>\n<p style="text-align: center\;">&nbsp\;</p>
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20260106T152700Z
+UID:event-assignment-922456
+DTSTART:20260505T120000Z
+DTEND:20260505T120000Z
+CLASS:PUBLIC
+DESCRIPTION:* in-person test covering all modules' content\n\n* bring no. 2
+  pencil and calculator\n\n* scratch paper will be provided\n\n* 70 questio
+ ns/problems\, multiple-choice format\n\n* 110 min time limit
+SEQUENCE:0
+SUMMARY:final exam [CHM-1300-900-S26]
+URL;VALUE=URI:https://canvas.uncp.edu/calendar?include_contexts=course_3836
+ 2&month=05&year=2026#assignment_922456
+X-ALT-DESC;FMTTYPE=text/html:<ul>\n<li>in-person test covering all modules'
+  content</li>\n<li>bring no. 2 pencil and calculator</li>\n<li>scratch pap
+ er will be provided</li>\n<li>70 questions/problems\, multiple-choice form
+ at</li>\n<li>110 min time limit</li>\n</ul>
+END:VEVENT
+END:VCALENDAR

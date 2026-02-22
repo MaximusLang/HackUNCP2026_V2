@@ -1,0 +1,25 @@
+{
+  "name": "hackuncp2026_v2",
+  "version": "1.0.0",
+  "description": "Second attempt for HackUNCP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximusLang/HackUNCP2026_V2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MaximusLang/HackUNCP2026_V2/issues"
+  },
+  "homepage": "https://github.com/MaximusLang/HackUNCP2026_V2#readme",
+  "dependencies": {
+    "mongodb": "^7.1.0",
+    "node-ical": "^0.25.3"
+  }
+}
