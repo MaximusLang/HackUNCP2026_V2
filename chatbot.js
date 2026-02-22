@@ -8,10 +8,10 @@ require('dotenv').config();
  * chatbot.js - Academic Strategy Advisor
  */
 
-const API_KEY = 'AIzaSyCrlJCsYVDwBqTFZA9l_t3zBvHsXxaRbcE';
+const API_KEY = process.env.GEMINI_API_KEY;
 
 const getGenAI = () => {
-    if (!API_KEY || API_KEY === 'AIzaSyCrlJCsYVDwBqTFZA9l_t3zBvHsXxaRbcE') {
+    if (!API_KEY) {
         throw new Error("API Key missing. Please add GEMINI_API_KEY to your .env file.");
     }
     return new GoogleGenAI(API_KEY);
