@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 let pdf = require('pdf-parse');
 if (typeof pdf !== 'function' && pdf.default) pdf = pdf.default;
 const { parseAndUpload } = require('./parse_and_upload');
-const { generateChatResponse } = require('./chatbot');
+const { generateChatResponse, parseSyllabus } = require('./chatbot');
+const crypto = require('crypto');
 const Assignment = require('./models/Assignment');
 const Course = require('./models/Course');
 require('dotenv').config();
@@ -167,31 +168,112 @@ app.post('/api/courses', async (req, res) => {
 app.post('/api/upload-syllabus', upload.single('syllabus'), async (req, res) => {
     try {
         const { courseId } = req.body;
-        if (!req.file || !courseId) return res.status(400).json({ error: "Missing file or courseId" });
+        if (!req.file) return res.status(400).json({ error: "Missing file" });
 
         const dataBuffer = fs.readFileSync(req.file.path);
         let text = "";
+        const ext = path.extname(req.file.originalname || '').toLowerCase();
 
-        if (req.file.mimetype === 'application/pdf' || req.file.originalname.endsWith('.pdf')) {
-            const pdfData = await pdf(dataBuffer);
-            text = pdfData.text;
-        } else {
-            text = dataBuffer.toString();
+        try {
+            if (ext === '.pdf' || req.file.mimetype === 'application/pdf') {
+                // Support multiple pdf-parse exports and input shapes. Prefer passing { data: Buffer }.
+                try {
+                    if (typeof pdf === 'function') {
+                        // try object form first
+                        try {
+                            const pdfData = await pdf({ data: dataBuffer });
+                            text = pdfData && pdfData.text ? pdfData.text : '';
+                        } catch (tryObjErr) {
+                            // fallback to passing raw buffer
+                            const pdfData = await pdf(dataBuffer);
+                            text = pdfData && pdfData.text ? pdfData.text : '';
+                        }
+                    } else if (pdf && typeof pdf.PDFParse === 'function') {
+                        // Try constructor with options object
+                        let parser;
+                        try {
+                            parser = new pdf.PDFParse({ data: dataBuffer });
+                        } catch (ctorErr) {
+                            parser = new pdf.PDFParse(dataBuffer);
+                        }
+                        if (parser) {
+                            if (typeof parser.getText === 'function') {
+                                text = await parser.getText();
+                            } else if (typeof parser.getPageText === 'function') {
+                                text = await parser.getPageText();
+                            } else if (typeof parser.getPageTables === 'function') {
+                                text = (await parser.getPageText()) || '';
+                            } else {
+                                text = dataBuffer.toString();
+                            }
+                        }
+                    } else {
+                        text = dataBuffer.toString();
+                    }
+                } catch (pErr) {
+                    console.error('pdf-parse error:', pErr);
+                    throw pErr;
+                }
+            } else if (ext === '.docx') {
+                // Try to parse DOCX using mammoth if available
+                try {
+                    const mammoth = require('mammoth');
+                    const m = await mammoth.extractRawText({ buffer: dataBuffer });
+                    text = m.value || '';
+                } catch (mErr) {
+                    console.warn('mammoth not available or failed, falling back to binary->text');
+                    text = dataBuffer.toString();
+                }
+            } else {
+                text = dataBuffer.toString();
+            }
+        } catch (readErr) {
+            console.error('Error reading uploaded syllabus file:', readErr);
+            try { fs.unlinkSync(req.file.path); } catch (e) {}
+            return res.status(400).json({ success: false, error: 'file_read_error', message: readErr.message });
+        }
+
+        // Normalize extracted text to a string
+        if (typeof text !== 'string') {
+            if (text && typeof text === 'object' && 'text' in text) text = text.text;
+            else text = String(text);
         }
 
         // Use AI to parse the syllabus text
-        const { parseSyllabus } = require('./chatbot');
         const gradingData = await parseSyllabus(text);
+        console.log(`Uploaded syllabus '${req.file.originalname}' ext='${ext}' textLen=${(text||'').length} inferredAssignments=${(gradingData.assignments||[]).length}`);
+        if (gradingData.rawResponse) {
+            // If parsing returned a rawResponse but no weights/assignments, log it for debugging
+            const hasMeaningful = (gradingData.weights && Object.keys(gradingData.weights).length > 0) || (Array.isArray(gradingData.assignments) && gradingData.assignments.length>0) || gradingData.courseName;
+            if (!hasMeaningful) {
+                console.error('Syllabus AI raw response (likely malformed JSON):\n', gradingData.rawResponse.substring(0, 2000));
+            }
+        }
 
-        await Course.findByIdAndUpdate(courseId, {
-            gradingWeights: gradingData.weights,
-            syllabusRawText: text,
-            syllabusFileName: req.file.originalname
-        });
+        // Determine course: prefer provided courseId, otherwise find/create by courseName
+        let course = null;
+        if (courseId) {
+            course = await Course.findById(courseId);
+        }
+        if (!course) {
+            const name = gradingData.courseName && gradingData.courseName.trim() ? gradingData.courseName.trim() : null;
+            if (name) course = await Course.findOne({ courseName: name });
+            if (!course) {
+                course = new Course({ courseName: name || (`Unknown Course ${Date.now()}`) });
+            }
+        }
+
+        // Update course with syllabus info
+        course.gradingWeights = gradingData.weights || course.gradingWeights;
+        course.syllabusRawText = text;
+        course.syllabusFileName = req.file.originalname;
+        await course.save();
+
+        // Do NOT create assignments from syllabus parsing (per user request)
 
         try { fs.unlinkSync(req.file.path); } catch (e) {}
         
-        res.json({ success: true, weights: gradingData.weights });
+        res.json({ success: true, weights: gradingData.weights, course: course, inferredCount: (gradingData.assignments || []).length });
     } catch (err) {
         console.error("Syllabus error:", err);
         res.status(500).json({ error: err.message });

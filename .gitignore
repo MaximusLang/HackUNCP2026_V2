@@ -1,0 +1,26 @@
+# environment / secrets
+.env
+.env.local
+.env.*.local
+secrets.json
+*.pem
+*.key
+*.crt
+*.p12
+
+# node
+node_modules/
+dist/
+build/
+npm-debug.log
+yarn-error.log
+
+# logs
+logs
+*.log
+pids
+*.pid
+
+# OS
+.DS_Store
+Thumbs.db

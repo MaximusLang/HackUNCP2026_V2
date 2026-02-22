@@ -1,7 +1,8 @@
-const { GoogleGenAI } = require('@google/genai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const mongoose = require('mongoose');
 const Assignment = require('./models/Assignment');
 const Course = require('./models/Course');
+const path = require('path');
 require('dotenv').config();
 
 /**
@@ -14,7 +15,7 @@ const getGenAI = () => {
     if (!API_KEY) {
         throw new Error("API Key missing. Please add GEMINI_API_KEY to your .env file.");
     }
-    return new GoogleGenAI(API_KEY);
+    return new GoogleGenerativeAI(API_KEY);
 };
 
 // Tool for AI to suggest priority updates
@@ -39,7 +40,7 @@ async function generateChatResponse(userPrompt, context = {}) {
   try {
     const genAI = getGenAI();
     const model = genAI.getGenerativeModel({ 
-        model: 'gemini-1.5-flash',
+        model: 'gemini-2.0-flash',
         tools: [{
           functionDeclarations: [updatePriorityFunctionDeclaration]
         }],
@@ -47,16 +48,27 @@ async function generateChatResponse(userPrompt, context = {}) {
 
     const systemPrompt = `You are an AI Academic Strategy Advisor. 
     Analyze the student's workload and provide risk analysis.
-    
+
     ACADEMIC CONTEXT:
     Assignments: ${JSON.stringify(context.assignments || [])}
     Courses/Grading Weights: ${JSON.stringify(context.courses || [])}
     History: ${JSON.stringify(context.history || [])}
-    
+
     TASK:
     1. Answer questions about assignments.
     2. Identify "Risk" assignments (High difficulty + Low confidence + Close deadline).
-    3. Use the 'update_assignment_priority' tool if you identify an assignment that needs more focus.`;
+    3. Use the 'update_assignment_priority' tool if you identify an assignment that needs more focus.
+
+    IMPORTANT STYLE GUIDELINES:
+    - Keep your answers short, clear, and human—avoid long-winded or overly formal explanations.
+    - Use plain, conversational language.
+    - If listing assignments, keep lists brief and only mention the most urgent or relevant ones.
+    - Use line breaks between assignments and sections for readability (not markdown, just plain newlines).
+    - If you don't have enough info, ask for it in a friendly, concise way.
+    - Never repeat the same information in multiple ways.
+    - Avoid generic disclaimers or excessive context.
+    - If you recommend action, be direct and specific.
+    - Never use markdown formatting (like **bold** or lists), just plain text.`;
 
     const result = await model.generateContent({
         contents: [{ role: 'user', parts: [{ text: systemPrompt + "\n\nUser Message: " + userPrompt }] }]
@@ -87,33 +99,44 @@ async function generateChatResponse(userPrompt, context = {}) {
 async function parseSyllabus(text) {
   try {
     const genAI = getGenAI();
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
     const prompt = `
-      Extract the grading weights from the following syllabus text.
-      Return valid JSON only. No markdown.
-      
-      Target Structure:
+      Read the syllabus text and extract structured information. Return JSON only, no explanations.
+      Max response length 2000 chars. Use ISO dates for dates if present.
+
+      Target structure:
       {
-        "weights": {
-          "Homework": 20,
-          "Exams": 50,
-          "Quizzes": 10,
-          "Projects": 20
-        }
+        "courseName": "Course Title or null",
+        "latePolicy": "Short description or null",
+        "weights": { "Homework": 20, "Exams": 50, "Quizzes": 10, "Projects": 20 },
+        "assignments": [
+           { "summary": "HW1", "due": "2026-02-28T00:00:00.000Z", "category": "Homework", "estimatedWeight": 2 },
+           ...
+        ]
       }
-      
-      TEXT:
+
+      SYLLABUS:
       ${text.substring(0, 8000)}
     `;
 
     const result = await model.generateContent(prompt);
     const response = result.response.text();
-    const cleanJson = response.replace(/```json|```/g, '').trim();
-    return JSON.parse(cleanJson);
+    const clean = response.replace(/```json|```/g, '').trim();
+    try {
+      const parsed = JSON.parse(clean);
+      return { ...parsed, rawResponse: clean };
+    } catch (e) {
+      // attempt to extract a JSON object within the text
+      const m = clean.match(/\{[\s\S]*\}/);
+      if (m) {
+        try { return { ...JSON.parse(m[0]), rawResponse: clean }; } catch (e2) {}
+      }
+      // Return a fallback with the raw AI output for debugging
+      return { courseName: null, latePolicy: null, weights: { "Uncategorized": 100 }, assignments: [], rawResponse: clean };
+    }
   } catch (error) {
     console.error("Syllabus Parse Error:", error);
-    return { weights: { "Uncategorized": 100 } };
+    return { courseName: null, latePolicy: null, weights: { "Uncategorized": 100 }, assignments: [], rawResponse: null };
   }
 }
 

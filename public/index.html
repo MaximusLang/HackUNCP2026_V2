@@ -11,12 +11,10 @@
 
   <!-- LEFT COLUMN -->
   <div class="column left">
-    <h2>Course Management</h2>
-    <div id="courseList" style="margin-bottom: 10px;"></div>
-    <div style="display:flex; gap:5px; margin-bottom: 20px;">
-      <input type="text" id="newCourseName" placeholder="Course Name" style="flex:1" />
-      <button id="addCourseBtn">Add</button>
-    </div>
+    <h2>Syllabus Upload</h2>
+    <input type="file" id="syllabusUpload" accept=".pdf,.txt,.doc,.docx" />
+    <button id="uploadSyllabusBtn">Upload Syllabus</button>
+    <div id="uploadedCourseInfo" style="margin-top:8px;color:#666"></div>
 
     <h2>Upload Calendar</h2>
     <input type="file" id="icsUpload" accept=".ics" />

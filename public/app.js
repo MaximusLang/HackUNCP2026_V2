@@ -2,7 +2,7 @@ let assignments = [];
 let selectedAssignment = null;
 
 async function loadData() {
-    await Promise.all([loadAssignments(), loadCourses()]);
+    await loadAssignments();
 }
 
 async function loadAssignments() {
@@ -194,13 +194,57 @@ document.getElementById("closeCompletion").onclick = () => document.getElementBy
 document.getElementById("closeDetails").onclick = () => document.getElementById("detailsModal").classList.remove("active");
 document.getElementById("closeOverdue").onclick = () => document.getElementById("overdueModal").classList.remove("active");
 document.getElementById("acknowledgeOverdue").onclick = () => document.getElementById("overdueModal").classList.remove("active");
+document.getElementById("closeOverdue").onclick = () => {
+    const list = document.getElementById('overdueList');
+    if (list && list.children && list.children.length > 0) {
+        alert('Please resolve all overdue items before closing.');
+        return;
+    }
+    document.getElementById('overdueModal').classList.remove('active');
+};
 
-document.getElementById("addCourseBtn").onclick = async () => {
-    const name = document.getElementById('newCourseName').value;
-    if (!name) return;
-    await fetch('/api/courses', { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ courseName: name }) });
-    document.getElementById('newCourseName').value = "";
-    loadCourses();
+document.getElementById("acknowledgeOverdue").onclick = () => {
+    const list = document.getElementById('overdueList');
+    if (list && list.children && list.children.length > 0) {
+        alert('Please resolve all overdue items before acknowledging.');
+        return;
+    }
+    document.getElementById("overdueModal").classList.remove("active");
+};
+
+// Prevent closing with Escape while overdue items remain
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('overdueModal');
+        if (modal && modal.classList.contains('active')) {
+            const list = document.getElementById('overdueList');
+            if (list && list.children && list.children.length > 0) {
+                e.preventDefault();
+                alert('Resolve all overdue items before closing the overdue dialog.');
+            }
+        }
+    }
+});
+
+// Syllabus upload (single, AI-detected course)
+document.getElementById("uploadSyllabusBtn").onclick = async () => {
+    const input = document.getElementById('syllabusUpload');
+    const file = input.files[0];
+    if (!file) return alert('Select a syllabus file');
+    const formData = new FormData(); formData.append('syllabus', file);
+    try {
+        document.getElementById('uploadedCourseInfo').innerText = 'Analyzing syllabus...';
+        const res = await fetch('/api/upload-syllabus', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+            const courseName = data.course && data.course.courseName ? data.course.courseName : 'Unknown';
+            const weights = data.weights || {};
+            document.getElementById('uploadedCourseInfo').innerText = `Detected: ${courseName} — Weights: ${JSON.stringify(weights)}`;
+            loadAssignments();
+        } else {
+            document.getElementById('uploadedCourseInfo').innerText = 'Parse failed';
+        }
+    } catch (err) { console.error(err); document.getElementById('uploadedCourseInfo').innerText = 'Error uploading syllabus'; }
 };
 
 document.getElementById("uploadBtn").onclick = async () => {
@@ -241,4 +285,4 @@ async function updateAssignment(a) {
     await fetch(`/api/assignments/${a._id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(a) });
 }
 
-window.onload = loadData;
+window.onload = async () => { await loadData(); checkOverdue(); setInterval(checkOverdue, 60000); };
