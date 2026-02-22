@@ -1,100 +1,120 @@
 const { GoogleGenAI } = require('@google/genai');
 const mongoose = require('mongoose');
-const Event = require('./models/Event');
+const Assignment = require('./models/Assignment');
+const Course = require('./models/Course');
 require('dotenv').config();
 
 /**
- * chatbot.js
- * Integrates Gemini AI with function calling and Mongoose for assignment suggestions.
+ * chatbot.js - Academic Strategy Advisor
  */
 
-// Configure the client
-// User will provide API key via .env or manual insertion
-const API_KEY = process.env.GEMINI_API_KEY || 'YAIzaSyCrlJCsYVDwBqTFZA9l_t3zBvHsXxaRbcE';
-const genAI = new GoogleGenAI(API_KEY);
+const API_KEY = 'AIzaSyCrlJCsYVDwBqTFZA9l_t3zBvHsXxaRbcE';
 
-// Define the function declaration for the model
-const scheduleMeetingFunctionDeclaration = {
-  name: 'schedule_meeting',
-  description: 'Schedules a meeting with specified attendees at a given time and date.',
+const getGenAI = () => {
+    if (!API_KEY || API_KEY === 'AIzaSyCrlJCsYVDwBqTFZA9l_t3zBvHsXxaRbcE') {
+        throw new Error("API Key missing. Please add GEMINI_API_KEY to your .env file.");
+    }
+    return new GoogleGenAI(API_KEY);
+};
+
+// Tool for AI to suggest priority updates
+const updatePriorityFunctionDeclaration = {
+  name: 'update_assignment_priority',
+  description: 'Updates the priority score of an assignment based on risk analysis.',
   parameters: {
     type: 'OBJECT',
     properties: {
-      attendees: {
-        type: 'ARRAY',
-        items: { type: 'STRING' },
-        description: 'List of people attending the meeting.',
-      },
-      date: {
-        type: 'STRING',
-        description: 'Date of the meeting (e.g., "2024-07-29")',
-      },
-      time: {
-        type: 'STRING',
-        description: 'Time of the meeting (e.g., "15:00")',
-      },
-      topic: {
-        type: 'STRING',
-        description: 'The subject or topic of the meeting.',
-      },
+      assignmentId: { type: 'STRING', description: 'The MongoDB ObjectId of the assignment' },
+      suggestedPriority: { type: 'NUMBER', description: 'New priority score (1-100)' },
+      reasoning: { type: 'STRING', description: 'Why this priority was suggested' }
     },
-    required: ['attendees', 'date', 'time', 'topic'],
+    required: ['assignmentId', 'suggestedPriority', 'reasoning'],
   },
 };
 
 /**
- * Main function to generate content and handle function calls
- * @param {string} userPrompt The user's message to the chatbot.
+ * Generates an AI response based on user input and current academic context
  */
-async function generateChatResponse(userPrompt) {
+async function generateChatResponse(userPrompt, context = {}) {
   try {
+    const genAI = getGenAI();
     const model = genAI.getGenerativeModel({ 
         model: 'gemini-1.5-flash',
         tools: [{
-          functionDeclarations: [scheduleMeetingFunctionDeclaration]
+          functionDeclarations: [updatePriorityFunctionDeclaration]
         }],
     });
 
-    const result = await model.generateContent(userPrompt);
-    const response = result.response;
+    const systemPrompt = `You are an AI Academic Strategy Advisor. 
+    Analyze the student's workload and provide risk analysis.
     
-    // Check for function calls in the response
+    ACADEMIC CONTEXT:
+    Assignments: ${JSON.stringify(context.assignments || [])}
+    Courses/Grading Weights: ${JSON.stringify(context.courses || [])}
+    History: ${JSON.stringify(context.history || [])}
+    
+    TASK:
+    1. Answer questions about assignments.
+    2. Identify "Risk" assignments (High difficulty + Low confidence + Close deadline).
+    3. Use the 'update_assignment_priority' tool if you identify an assignment that needs more focus.`;
+
+    const result = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: systemPrompt + "\n\nUser Message: " + userPrompt }] }]
+    });
+
+    const response = result.response;
     const calls = response.functionCalls();
     
     if (calls && calls.length > 0) {
-      const functionCall = calls[0];
-      console.log(`Function to call: ${functionCall.name}`);
-      console.log(`Arguments: ${JSON.stringify(functionCall.args)}`);
-      
-      // Integration with Mongoose: If a meeting is scheduled, we could save it as an event
-      if (functionCall.name === 'schedule_meeting') {
-          const { attendees, date, time, topic } = functionCall.args;
-          
-          // Create a new event in the database
-          const newEvent = new Event({
-              uid: `chat-${Date.now()}`,
-              summary: `Meeting: ${topic}`,
-              start: new Date(`${date}T${time}:00`),
-              description: `Attendees: ${attendees.join(', ')}`,
-              status: 'current'
-          });
-          
-          await newEvent.save();
-          return `I've scheduled your meeting about "${topic}" for ${date} at ${time} and saved it to your planner.`;
+      const call = calls[0];
+      if (call.name === 'update_assignment_priority') {
+          const { assignmentId, suggestedPriority, reasoning } = call.args;
+          await Assignment.findByIdAndUpdate(assignmentId, { priorityScore: suggestedPriority });
+          return `[STRATEGY] ${reasoning}. I've increased the priority to ${suggestedPriority}.`;
       }
-    } else {
-      return response.text();
     }
+
+    return response.text();
   } catch (error) {
-    console.error("Chatbot Error:", error);
-    return "Sorry, I encountered an error while processing your request.";
+    console.error("Chatbot Error:", error.message);
+    return `Error: ${error.message}`;
   }
 }
 
-// Example usage if run directly
-if (require.main === module) {
-  const prompt = 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about the Q3 planning.';
-  generateChatResponse(prompt).then(console.log).catch(console.error);
+/**
+ * Uses AI to parse syllabus text and extract structured grading data
+ */
+async function parseSyllabus(text) {
+  try {
+    const genAI = getGenAI();
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+    const prompt = `
+      Extract the grading weights from the following syllabus text.
+      Return valid JSON only. No markdown.
+      
+      Target Structure:
+      {
+        "weights": {
+          "Homework": 20,
+          "Exams": 50,
+          "Quizzes": 10,
+          "Projects": 20
+        }
+      }
+      
+      TEXT:
+      ${text.substring(0, 8000)}
+    `;
+
+    const result = await model.generateContent(prompt);
+    const response = result.response.text();
+    const cleanJson = response.replace(/```json|```/g, '').trim();
+    return JSON.parse(cleanJson);
+  } catch (error) {
+    console.error("Syllabus Parse Error:", error);
+    return { weights: { "Uncategorized": 100 } };
+  }
 }
 
-module.exports = { generateChatResponse };
+module.exports = { generateChatResponse, parseSyllabus };

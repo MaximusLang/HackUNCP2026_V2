@@ -27,6 +27,7 @@
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.1",
     "multer": "^2.0.2",
-    "node-ical": "^0.25.3"
+    "node-ical": "^0.25.3",
+    "pdf-parse": "^2.4.5"
   }
 }

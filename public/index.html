@@ -11,6 +11,13 @@
 
   <!-- LEFT COLUMN -->
   <div class="column left">
+    <h2>Course Management</h2>
+    <div id="courseList" style="margin-bottom: 10px;"></div>
+    <div style="display:flex; gap:5px; margin-bottom: 20px;">
+      <input type="text" id="newCourseName" placeholder="Course Name" style="flex:1" />
+      <button id="addCourseBtn">Add</button>
+    </div>
+
     <h2>Upload Calendar</h2>
     <input type="file" id="icsUpload" accept=".ics" />
     <button id="uploadBtn">Upload</button>
@@ -20,14 +27,34 @@
   </div>
 
   <!-- CENTER COLUMN -->
-  <div class="column center">
-    <h2>Academic Assistant</h2>
-    <div id="chatWindow" class="chat-window">
-      <p class="placeholder">Gemini chatbot integration coming next.</p>
+  <div class="column center flex-column">
+    <div class="section-top">
+      <h2>Academic Overview</h2>
+      <div id="overviewSection" class="overview-section">
+        <div class="stat-card">
+          <span class="stat-label">Last Week</span>
+          <span id="statAccomplished" class="stat-value">0 done</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Avg Grade</span>
+          <span id="statAvgGrade" class="stat-value">N/A</span>
+        </div>
+        <div id="statViz" class="stat-viz">
+           <!-- Visualization placeholder -->
+           <div class="progress-bar-bg"><div id="progressFill" class="progress-bar-fill" style="width: 0%"></div></div>
+        </div>
+      </div>
     </div>
-    <div class="chat-input">
-      <input id="chatInput" type="text" placeholder="Ask something..." />
-      <button id="chatSend">Send</button>
+
+    <div class="section-bottom">
+      <h2>Academic Assistant</h2>
+      <div id="chatWindow" class="chat-window">
+        <p class="placeholder">Gemini chatbot integration coming next.</p>
+      </div>
+      <div class="chat-input">
+        <input id="chatInput" type="text" placeholder="Ask something..." />
+        <button id="chatSend">Send</button>
+      </div>
     </div>
   </div>
 
@@ -55,6 +82,27 @@
     <input type="range" id="confidenceInput" min="1" max="5">
 
     <button id="saveCompletion">Save</button>
+  </div>
+</div>
+
+<!-- Details Modal -->
+<div id="detailsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeDetails">&times;</span>
+    <h3 id="detailsTitle"></h3>
+    <div id="detailsBody"></div>
+    <div id="detailsMeta" style="margin-top: 15px; font-size: 0.9em; color: #aaa;"></div>
+  </div>
+</div>
+
+<!-- Overdue Modal -->
+<div id="overdueModal" class="modal">
+  <div class="modal-content" style="width: 500px; border: 2px solid #ff4444;">
+    <span class="close" id="closeOverdue">&times;</span>
+    <h3>⚠️ Overdue Assignments</h3>
+    <p>Please update the status of these past-due items:</p>
+    <div id="overdueList" style="max-height: 400px; overflow-y: auto;"></div>
+    <button id="acknowledgeOverdue" style="margin-top: 20px; width: 100%; background: #444;">Done</button>
   </div>
 </div>
 

@@ -1,35 +1,66 @@
 let assignments = [];
 let selectedAssignment = null;
 
+async function loadData() {
+    await Promise.all([loadAssignments(), loadCourses()]);
+}
+
 async function loadAssignments() {
     const res = await fetch('/api/assignments');
     assignments = await res.json();
     renderAll();
 }
 
+async function loadCourses() {
+    const res = await fetch('/api/courses');
+    const courses = await res.json();
+    renderCourses(courses);
+}
+
 function renderAll() {
     renderCurrent();
     renderToBeGraded();
     renderHistory();
+    updateOverview();
+}
+
+function updateOverview() {
+    const history = assignments.filter(a => a.status === 'history');
+    const now = new Date();
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(now.getDate() - 7);
+    const lastWeekAccomplished = history.filter(a => a.completedAt && new Date(a.completedAt) > oneWeekAgo);
+    let totalGrade = 0, gradeCount = 0;
+    lastWeekAccomplished.forEach(a => {
+        if (!isNaN(parseFloat(a.grade))) { totalGrade += parseFloat(a.grade); gradeCount++; }
+    });
+    document.getElementById('statAccomplished').innerText = `${lastWeekAccomplished.length} done`;
+    document.getElementById('statAvgGrade').innerText = gradeCount > 0 ? (totalGrade / gradeCount).toFixed(1) : "N/A";
+    const total = assignments.length;
+    document.getElementById('progressFill').style.width = `${total > 0 ? (history.length / total) * 100 : 0}%`;
 }
 
 function renderCurrent() {
     const container = document.getElementById('currentAssignments');
     container.innerHTML = "";
-
     assignments.filter(a => a.status === "current")
+        .sort((a, b) => (b.priorityScore || 0) - (a.priorityScore || 0))
         .forEach(a => {
-
             const card = document.createElement('div');
             card.className = "card";
-
+            if (a.priorityScore > 70 || (a.end && new Date(a.end) < new Date())) card.style.borderLeft = "5px solid #ff4444";
             card.innerHTML = `
-                <strong>${a.summary}</strong>
-                <p>Due: ${a.end ? new Date(a.end).toLocaleDateString() : "N/A"}</p>
-                <button class="complete-btn">✓</button>
+                <input type="checkbox" class="complete-checkbox" />
+                <div class="card-content">
+                    <strong>${a.summary}</strong>
+                    <p style="font-size:0.8em; color:#888;">${a.courseId ? a.courseId.courseName : 'Unassigned'}</p>
+                    <p>Due: ${a.end ? new Date(a.end).toLocaleDateString() : "N/A"}</p>
+                    ${a.priorityScore ? `<span style="font-size:0.7em; color:#ffaa00;">Priority: ${a.priorityScore}</span>` : ''}
+                </div>
             `;
-
-            card.querySelector(".complete-btn").onclick = () => openCompletion(a);
+            card.onclick = () => openDetails(a);
+            const checkbox = card.querySelector(".complete-checkbox");
+            checkbox.onclick = (e) => { e.stopPropagation(); openCompletion(a); checkbox.checked = false; };
             container.appendChild(card);
         });
 }
@@ -37,50 +68,111 @@ function renderCurrent() {
 function renderToBeGraded() {
     const container = document.getElementById('toBeGraded');
     container.innerHTML = "";
-
-    assignments.filter(a => a.status === "toBeGraded")
-        .forEach(a => {
-
-            const card = document.createElement('div');
-            card.className = "card";
-
-            card.innerHTML = `
+    assignments.filter(a => a.status === "toBeGraded").forEach(a => {
+        const card = document.createElement('div');
+        card.className = "card";
+        card.innerHTML = `
+            <div class="card-content">
                 <strong>${a.summary}</strong>
-                <input type="number" placeholder="Grade" />
-                <button>Save</button>
-            `;
-
-            card.querySelector("button").onclick = async () => {
-                const grade = card.querySelector("input").value;
-
-                a.grade = grade;
-                a.status = "history";
-                a.completedAt = new Date();
-
-                await updateAssignment(a);
-                loadAssignments();
-            };
-
-            container.appendChild(card);
-        });
+                <div style="margin-top:10px">
+                    <input type="text" placeholder="Grade" style="width: 60px" />
+                    <button class="save-grade-btn">Save</button>
+                </div>
+            </div>
+        `;
+        card.querySelector(".save-grade-btn").onclick = async () => {
+            const g = card.querySelector("input").value;
+            if (!g) return alert("Enter grade");
+            a.grade = parseFloat(g); a.status = "history"; a.completedAt = new Date();
+            await updateAssignment(a); loadAssignments();
+        };
+        container.appendChild(card);
+    });
 }
 
 function renderHistory() {
     const container = document.getElementById('history');
     container.innerHTML = "";
+    assignments.filter(a => a.status === "history").forEach(a => {
+        const card = document.createElement('div');
+        card.className = "card history";
+        card.innerHTML = `<div class="card-content"><strong>${a.summary}</strong><p>Grade: ${a.grade || "N/A"}</p></div>`;
+        container.appendChild(card);
+    });
+}
 
-    assignments.filter(a => a.status === "history")
-        .forEach(a => {
-            const card = document.createElement('div');
-            card.className = "card history";
+function renderCourses(courses) {
+    const container = document.getElementById('courseList');
+    container.innerHTML = courses.map(c => `
+        <div class="card" style="padding: 10px; margin-bottom: 5px;">
+            <div class="card-content">
+                <strong style="font-size:0.9em">${c.courseName}</strong>
+                <p style="font-size:0.7em">${c.syllabusFileName ? '✅ Syllabus OK' : '❌ No Syllabus'}</p>
+            </div>
+            <input type="file" class="syllabus-file" style="display:none" data-id="${c._id}" />
+            <button class="upload-syllabus-btn" data-id="${c._id}" title="Upload Syllabus">📄</button>
+        </div>
+    `).join('');
+    container.querySelectorAll('.upload-syllabus-btn').forEach(btn => {
+        btn.onclick = () => container.querySelector(`.syllabus-file[data-id="${btn.dataset.id}"]`).click();
+    });
+    container.querySelectorAll('.syllabus-file').forEach(input => {
+        input.onchange = async () => {
+            const file = input.files[0]; if (!file) return;
+            const formData = new FormData(); formData.append('syllabus', file); formData.append('courseId', input.dataset.id);
+            alert("Analyzing syllabus with AI...");
+            const res = await fetch('/api/upload-syllabus', { method: "POST", body: formData });
+            const data = await res.json();
+            if (data.success) { alert("Syllabus parsed!"); loadCourses(); }
+        };
+    });
+}
 
-            card.innerHTML = `
-                <strong>${a.summary}</strong>
-                <p>Grade: ${a.grade || "N/A"}</p>
-            `;
+async function checkOverdue() {
+    try {
+        const res = await fetch('/api/assignments/overdue');
+        const overdue = await res.json();
+        if (overdue && overdue.length > 0) {
+            const list = document.getElementById('overdueList');
+            list.innerHTML = "";
+            overdue.forEach(a => {
+                const item = document.createElement('div');
+                item.className = "card"; item.style.flexDirection = "column"; item.style.borderLeft = "5px solid #ff4444";
+                item.innerHTML = `
+                    <strong>${a.summary}</strong>
+                    <div style="display:flex; gap:10px; margin-top:10px; width:100%;">
+                        <div style="flex:1">
+                            <label style="font-size:0.7em">New Due Date:</label>
+                            <input type="date" class="new-date-input" style="width:100%" />
+                            <button class="keep-btn" style="width:100%; background:#4caf50; margin-top:5px;">Keep</button>
+                        </div>
+                        <div style="flex:1; display:flex; align-items:flex-end;">
+                            <button class="fail-btn" style="width:100%; background:#ff4444;">Fail (0)</button>
+                        </div>
+                    </div>
+                `;
+                item.querySelector(".keep-btn").onclick = async () => {
+                    const d = item.querySelector(".new-date-input").value;
+                    if (!d) return alert("Select date");
+                    await fetch(`/api/assignments/${a._id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ end: new Date(d) }) });
+                    checkOverdue(); loadAssignments();
+                };
+                item.querySelector(".fail-btn").onclick = async () => {
+                    await fetch(`/api/assignments/${a._id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: 'history', grade: 0 }) });
+                    checkOverdue(); loadAssignments();
+                };
+                list.appendChild(item);
+            });
+            document.getElementById('overdueModal').classList.add('active');
+        } else { document.getElementById('overdueModal').classList.remove('active'); }
+    } catch (err) { console.error(err); }
+}
 
-            container.appendChild(card);
-        });
+function openDetails(a) {
+    document.getElementById("detailsTitle").innerText = a.summary;
+    document.getElementById("detailsBody").innerText = a.description || "No description.";
+    document.getElementById("detailsMeta").innerHTML = `<strong>Location:</strong> ${a.location || 'N/A'}<br><strong>UID:</strong> ${a.uid}`;
+    document.getElementById("detailsModal").classList.add("active");
 }
 
 function openCompletion(a) {
@@ -91,42 +183,62 @@ function openCompletion(a) {
 
 document.getElementById("saveCompletion").onclick = async () => {
     selectedAssignment.status = "toBeGraded";
-    selectedAssignment.difficulty = document.getElementById("difficultyInput").value;
-    selectedAssignment.confidence = document.getElementById("confidenceInput").value;
-
+    selectedAssignment.difficulty = parseInt(document.getElementById("difficultyInput").value);
+    selectedAssignment.confidence = parseInt(document.getElementById("confidenceInput").value);
     await updateAssignment(selectedAssignment);
-
     document.getElementById("completionModal").classList.remove("active");
     loadAssignments();
 };
 
-document.getElementById("closeCompletion").onclick = () => {
-    document.getElementById("completionModal").classList.remove("active");
+document.getElementById("closeCompletion").onclick = () => document.getElementById("completionModal").classList.remove("active");
+document.getElementById("closeDetails").onclick = () => document.getElementById("detailsModal").classList.remove("active");
+document.getElementById("closeOverdue").onclick = () => document.getElementById("overdueModal").classList.remove("active");
+document.getElementById("acknowledgeOverdue").onclick = () => document.getElementById("overdueModal").classList.remove("active");
+
+document.getElementById("addCourseBtn").onclick = async () => {
+    const name = document.getElementById('newCourseName').value;
+    if (!name) return;
+    await fetch('/api/courses', { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ courseName: name }) });
+    document.getElementById('newCourseName').value = "";
+    loadCourses();
 };
 
 document.getElementById("uploadBtn").onclick = async () => {
     const fileInput = document.getElementById("icsUpload");
     const file = fileInput.files[0];
-
-    if (!file) return alert("Select a file.");
-
-    const formData = new FormData();
-    formData.append("icsFile", file);
-
-    await fetch('/api/upload-ics', {
-        method: "POST",
-        body: formData
-    });
-
+    if (!file) return alert("Select file");
+    const formData = new FormData(); formData.append("icsFile", file);
+    try {
+        const res = await fetch('/api/upload-ics', { method: "POST", body: formData });
+        const result = await res.json();
+        if (result.success) alert(`Processed ${result.count} events.`);
+    } catch (err) { console.error(err); }
     loadAssignments();
 };
 
-async function updateAssignment(a) {
-    await fetch(`/api/assignments/${a._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(a)
-    });
+document.getElementById("chatSend").onclick = async () => {
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    if (!message) return;
+    appendChatMessage("User", message); input.value = "";
+    try {
+        const res = await fetch('/api/chat', { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message }) });
+        const data = await res.json();
+        appendChatMessage("AI", data.response);
+        loadAssignments();
+    } catch (err) { appendChatMessage("System", "AI Error"); }
+};
+
+function appendChatMessage(sender, text) {
+    const window = document.getElementById("chatWindow");
+    const p = document.createElement("p");
+    p.style.margin = "5px 0";
+    p.innerHTML = `<strong style="color: #4caf50">${sender}:</strong> ${text}`;
+    window.appendChild(p); window.scrollTop = window.scrollHeight;
 }
 
-window.onload = loadAssignments;
+async function updateAssignment(a) {
+    await fetch(`/api/assignments/${a._id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(a) });
+}
+
+window.onload = loadData;

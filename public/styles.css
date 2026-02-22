@@ -21,15 +21,52 @@ body {
     border-right: none;
 }
 
+/* Flex Column for center alignment */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section-top {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.section-bottom {
+    border-top: 2px solid #333;
+    background: #111;
+    height: 350px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .card {
     background: #1e1e1e;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.card button {
-    margin-top: 10px;
+.card:hover {
+    background: #2a2a2a;
+}
+
+.card .card-content {
+    flex-grow: 1;
+}
+
+.card input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .history {
@@ -40,7 +77,8 @@ body {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
 }
 
 .modal.active {
@@ -53,10 +91,99 @@ body {
     background: #222;
     padding: 25px;
     border-radius: 10px;
-    width: 300px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .close {
     float: right;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+/* Overview Stats */
+.overview-section {
+    display: flex;
+    gap: 20px;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.stat-card {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.stat-viz {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: #333;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    width: 0%;
+    transition: width 0.8s ease-out;
+}
+
+/* Chat Styles */
+.chat-window {
+    flex: 1;
+    overflow-y: auto;
+    background: #000;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    background: #222;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.chat-input button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }

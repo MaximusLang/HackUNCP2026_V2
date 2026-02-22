@@ -1,38 +1,54 @@
 const express = require('express');
 const multer = require('multer');
-const cors = require('cors');
+const cors = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { MongoClient, ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+let pdf = require('pdf-parse');
+if (typeof pdf !== 'function' && pdf.default) pdf = pdf.default;
 const { parseAndUpload } = require('./parse_and_upload');
+const { generateChatResponse } = require('./chatbot');
+const Assignment = require('./models/Assignment');
+const Course = require('./models/Course');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(require('cors')());
 app.use(express.json());
 app.use(express.static('public'));
 
 const upload = multer({ dest: 'uploads/' });
 
 /* =========================
-   DATABASE CONFIG
+   DATABASE CONFIG (Mongoose)
  ========================= */
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017';
-const DB_NAME = 'hackuncp';
-const COLLECTION = 'events';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://0.0.0.0:27017/hackuncp';
 
-let cachedClient = null;
+mongoose.connect(MONGO_URI)
+    .then(() => console.log("Connected to MongoDB via Mongoose"))
+    .catch(err => console.error("Mongoose connection error:", err));
 
-async function getCollection() {
-    if (!cachedClient) {
-        cachedClient = new MongoClient(MONGO_URI);
-        await cachedClient.connect();
-        console.log("Connected to MongoDB");
-    }
-    const db = cachedClient.db(DB_NAME);
-    return db.collection(COLLECTION);
-}
+// Schema for History (Completed Assignments) - "extra space"
+const historySchema = new mongoose.Schema({
+    originalId: mongoose.Schema.Types.ObjectId,
+    uid: String,
+    courseId: mongoose.Schema.Types.ObjectId,
+    summary: String,
+    start: Date,
+    end: Date,
+    description: String,
+    location: String,
+    grade: Number,
+    difficulty: Number,
+    confidence: Number,
+    completedAt: { type: Date, default: Date.now },
+    allDay: Boolean,
+    category: String,
+    estimatedWeight: Number
+}, { timestamps: true });
+
+const History = mongoose.model('History', historySchema, 'completed_assignments');
 
 /* =========================
    ICS UPLOAD
@@ -40,73 +56,170 @@ async function getCollection() {
 
 app.post('/api/upload-ics', upload.single('icsFile'), async (req, res) => {
     try {
-        if (!req.file) {
-            return res.status(400).json({ error: "No file uploaded" });
-        }
+        if (!req.file) return res.status(400).json({ error: "No file uploaded" });
 
-        // Use the centralized parsing logic from parse_and_upload.js
-        const result = await parseAndUpload(req.file.path, {
-            mongoUrl: MONGO_URI,
-            dbName: DB_NAME,
-            collectionName: COLLECTION
-        });
+        const result = await parseAndUpload(req.file.path);
+        
+        try { fs.unlinkSync(req.file.path); } catch (e) {}
 
-        // Clean up the uploaded file
-        try {
-            fs.unlinkSync(req.file.path);
-        } catch (unlinkErr) {
-            console.warn("Failed to delete temp file:", unlinkErr.message);
-        }
-
-        if (result.success) {
-            res.json({ success: true, count: result.count });
-        } else {
-            res.status(500).json({ error: result.error });
-        }
-
+        if (result.success) res.json({ success: true, count: result.count });
+        else res.status(500).json({ error: result.error });
     } catch (err) {
-        console.error("Upload handler error:", err);
         res.status(500).json({ error: err.message });
     }
 });
 
 /* =========================
-   FETCH ALL
+   ASSIGNMENTS API
  ========================= */
 
 app.get('/api/assignments', async (req, res) => {
     try {
-        const collection = await getCollection();
-        const data = await collection.find().toArray();
-        res.json(data);
+        const current = await Assignment.find({ status: { $ne: 'history' } }).populate('courseId');
+        const history = await History.find().populate('courseId');
+        
+        const merged = [
+            ...current,
+            ...history.map(h => ({ ...h.toObject(), status: 'history', _id: h.originalId || h._id }))
+        ];
+        res.json(merged);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.get('/api/assignments/overdue', async (req, res) => {
+    try {
+        const overdue = await Assignment.find({
+            end: { $lt: new Date() },
+            status: 'current'
+        }).populate('courseId');
+        res.json(overdue);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.put('/api/assignments/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updateData = req.body;
+
+        if (updateData.status === 'history') {
+            const assignment = await Assignment.findById(id);
+            if (assignment) {
+                const historyEntry = new History({
+                    originalId: assignment._id,
+                    uid: assignment.uid,
+                    courseId: assignment.courseId,
+                    summary: assignment.summary,
+                    start: assignment.start,
+                    end: assignment.end,
+                    description: assignment.description,
+                    location: assignment.location,
+                    grade: updateData.grade,
+                    difficulty: updateData.difficulty || assignment.difficulty,
+                    confidence: updateData.confidence || assignment.confidence,
+                    category: assignment.category,
+                    estimatedWeight: assignment.estimatedWeight,
+                    allDay: assignment.allDay
+                });
+                await historyEntry.save();
+                await Assignment.findByIdAndDelete(id);
+                return res.json({ success: true, movedToHistory: true });
+            }
+        }
+
+        await Assignment.findByIdAndUpdate(id, updateData);
+        res.json({ success: true });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
 /* =========================
-   UPDATE ASSIGNMENT
+   COURSES API
  ========================= */
 
-app.put('/api/assignments/:id', async (req, res) => {
+app.get('/api/courses', async (req, res) => {
     try {
-        const collection = await getCollection();
-        
-        // Ensure we don't try to update the _id field itself
-        const { _id, ...updateData } = req.body;
+        const courses = await Course.find();
+        res.json(courses);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-        const result = await collection.updateOne(
-            { _id: new ObjectId(req.params.id) },
-            { $set: updateData }
-        );
+app.post('/api/courses', async (req, res) => {
+    try {
+        const course = new Course(req.body);
+        await course.save();
+        res.json(course);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-        if (result.matchedCount === 0) {
-            return res.status(404).json({ error: "Assignment not found" });
+/* =========================
+   SYLLABUS & COURSES (Placeholders)
+ ========================= */
+
+app.post('/api/upload-syllabus', upload.single('syllabus'), async (req, res) => {
+    try {
+        const { courseId } = req.body;
+        if (!req.file || !courseId) return res.status(400).json({ error: "Missing file or courseId" });
+
+        const dataBuffer = fs.readFileSync(req.file.path);
+        let text = "";
+
+        if (req.file.mimetype === 'application/pdf' || req.file.originalname.endsWith('.pdf')) {
+            const pdfData = await pdf(dataBuffer);
+            text = pdfData.text;
+        } else {
+            text = dataBuffer.toString();
         }
 
-        res.json({ success: true });
+        // Use AI to parse the syllabus text
+        const { parseSyllabus } = require('./chatbot');
+        const gradingData = await parseSyllabus(text);
+
+        await Course.findByIdAndUpdate(courseId, {
+            gradingWeights: gradingData.weights,
+            syllabusRawText: text,
+            syllabusFileName: req.file.originalname
+        });
+
+        try { fs.unlinkSync(req.file.path); } catch (e) {}
+        
+        res.json({ success: true, weights: gradingData.weights });
     } catch (err) {
-        console.error("Update error:", err);
+        console.error("Syllabus error:", err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.post('/api/recalculate-priority', async (req, res) => {
+    // Algorithm hook coming soon
+    res.json({ success: true, message: "Priority recalculated (placeholder)" });
+});
+
+app.post('/api/chat', async (req, res) => {
+    try {
+        const { message } = req.body;
+        
+        // Gather full context for AI
+        const assignments = await Assignment.find({ status: { $ne: 'history' } });
+        const courses = await Course.find();
+        const history = await mongoose.model('History').find();
+
+        const aiResponse = await generateChatResponse(message, {
+            assignments,
+            courses,
+            history
+        });
+
+        res.json({ response: aiResponse });
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
