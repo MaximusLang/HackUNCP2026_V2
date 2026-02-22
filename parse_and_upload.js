@@ -65,7 +65,31 @@ async function parseAndUpload(icsFile) {
             };
 
             // Use replaceOne with upsert: true to replace existing or insert new
-            const result = await collection.replaceOne(filter, event, { upsert: true });
+            const result = await collection.updateOne(
+    { uid: event.uid },
+    {
+        $set: {
+            summary: event.summary,
+            start: event.start,
+            end: event.end,
+            description: event.description,
+            location: event.location,
+            dtstamp: event.dtstamp,
+            url: event.url,
+            allDay: event.allDay
+        },
+        $setOnInsert: {
+            status: "current",
+            difficulty: null,
+            confidence: null,
+            grade: null,
+            extendedEnd: null,
+            priorityScore: null,
+            embedding: null
+        }
+    },
+    { upsert: true }
+);
             processedCount++;
         }
 

@@ -4,7 +4,8 @@
   "description": "Second attempt for HackUNCP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,11 @@
   },
   "homepage": "https://github.com/MaximusLang/HackUNCP2026_V2#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
     "mongodb": "^7.1.0",
+    "multer": "^2.0.2",
     "node-ical": "^0.25.3"
   }
 }

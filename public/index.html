@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Academic Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- LEFT COLUMN -->
+  <div class="column left">
+    <h2>Upload Calendar</h2>
+    <input type="file" id="icsUpload" accept=".ics" />
+    <button id="uploadBtn">Upload</button>
+
+    <h2>Current Assignments</h2>
+    <div id="currentAssignments"></div>
+  </div>
+
+  <!-- CENTER COLUMN -->
+  <div class="column center">
+    <h2>Academic Assistant</h2>
+    <div id="chatWindow" class="chat-window">
+      <p class="placeholder">Gemini chatbot integration coming next.</p>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="Ask something..." />
+      <button id="chatSend">Send</button>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="column right">
+    <h2>To Be Graded</h2>
+    <div id="toBeGraded"></div>
+
+    <h2>Assignment History</h2>
+    <div id="history"></div>
+  </div>
+
+</div>
+
+<!-- Completion Modal -->
+<div id="completionModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCompletion">&times;</span>
+    <h3 id="completionTitle"></h3>
+
+    <label>Difficulty (1–5)</label>
+    <input type="range" id="difficultyInput" min="1" max="5">
+
+    <label>Confidence (1–5)</label>
+    <input type="range" id="confidenceInput" min="1" max="5">
+
+    <button id="saveCompletion">Save</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
