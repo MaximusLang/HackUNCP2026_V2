@@ -2,8 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
-const ical = require('node-ical');
+const fs = require('fs');
 const { MongoClient, ObjectId } = require('mongodb');
+const { parseAndUpload } = require('./parse_and_upload');
 require('dotenv').config();
 
 const app = express();
@@ -15,11 +16,11 @@ const upload = multer({ dest: 'uploads/' });
 
 /* =========================
    DATABASE CONFIG
-========================= */
+ ========================= */
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017';
-const DB_NAME = 'academicPlanner';
-const COLLECTION = 'assignments';
+const DB_NAME = 'hackuncp';
+const COLLECTION = 'events';
 
 let cachedClient = null;
 
@@ -35,72 +36,79 @@ async function getCollection() {
 
 /* =========================
    ICS UPLOAD
-========================= */
+ ========================= */
 
 app.post('/api/upload-ics', upload.single('icsFile'), async (req, res) => {
     try {
-        const events = await ical.parseFile(req.file.path);
-        const collection = await getCollection();
-
-        for (const key in events) {
-            const ev = events[key];
-
-            if (ev.type === 'VEVENT') {
-                await collection.updateOne(
-                    { uid: ev.uid },
-                    {
-                        $set: {
-                            summary: ev.summary || '',
-                            start: ev.start || null,
-                            end: ev.end || null,
-                            description: ev.description || '',
-                            location: ev.location || '',
-                            url: ev.url || '',
-                            allDay: ev.datetype === 'date'
-                        },
-                        $setOnInsert: {
-                            status: "current",
-                            difficulty: null,
-                            confidence: null,
-                            grade: null,
-                            completedAt: null
-                        }
-                    },
-                    { upsert: true }
-                );
-            }
+        if (!req.file) {
+            return res.status(400).json({ error: "No file uploaded" });
         }
 
-        res.json({ success: true });
+        // Use the centralized parsing logic from parse_and_upload.js
+        const result = await parseAndUpload(req.file.path, {
+            mongoUrl: MONGO_URI,
+            dbName: DB_NAME,
+            collectionName: COLLECTION
+        });
+
+        // Clean up the uploaded file
+        try {
+            fs.unlinkSync(req.file.path);
+        } catch (unlinkErr) {
+            console.warn("Failed to delete temp file:", unlinkErr.message);
+        }
+
+        if (result.success) {
+            res.json({ success: true, count: result.count });
+        } else {
+            res.status(500).json({ error: result.error });
+        }
 
     } catch (err) {
+        console.error("Upload handler error:", err);
         res.status(500).json({ error: err.message });
     }
 });
 
 /* =========================
    FETCH ALL
-========================= */
+ ========================= */
 
 app.get('/api/assignments', async (req, res) => {
-    const collection = await getCollection();
-    const data = await collection.find().toArray();
-    res.json(data);
+    try {
+        const collection = await getCollection();
+        const data = await collection.find().toArray();
+        res.json(data);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 /* =========================
    UPDATE ASSIGNMENT
-========================= */
+ ========================= */
 
 app.put('/api/assignments/:id', async (req, res) => {
-    const collection = await getCollection();
+    try {
+        const collection = await getCollection();
+        
+        // Ensure we don't try to update the _id field itself
+        const { _id, ...updateData } = req.body;
 
-    await collection.updateOne(
-        { _id: new ObjectId(req.params.id) },
-        { $set: req.body }
-    );
+        const result = await collection.updateOne(
+            { _id: new ObjectId(req.params.id) },
+            { $set: updateData }
+        );
 
-    res.json({ success: true });
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ error: "Assignment not found" });
+        }
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error("Update error:", err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 /* ========================= */
